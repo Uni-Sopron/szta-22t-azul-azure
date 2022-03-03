@@ -29,6 +29,12 @@ application {
     mainClass.set("azureboiler.App")
 }
 
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "azul.App"
+    }
+}
+
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
