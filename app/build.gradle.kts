@@ -35,6 +35,12 @@ tasks.withType<Jar> {
     }
 }
 
+tasks.register<JavaExec>("runWithJavaExec") {
+    description = "Run the main class with JavaExecTask"
+    mainClass.set("azul.App")
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
