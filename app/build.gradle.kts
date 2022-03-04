@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    id("io.freefair.aggregate-javadoc") version "6.4.1"
 }
 
 repositories {
