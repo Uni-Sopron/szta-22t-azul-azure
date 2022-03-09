@@ -4,12 +4,168 @@
 package azul;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
     }
-    //some modification
+
+    enum Color {
+        White,
+        Red,
+        Green,
+        Blue,
+        Yellow,
+        FirstPlayer
+    }
+
+    class Tile {
+        private Color color;
+
+        public Color getColor() {
+            return color;
+        }
+
+        public boolean equals(Color gotColor) {
+            return gotColor == color;
+        }
+    }
+
+    class Row {
+        private Color color;
+        private byte number;
+
+        public Color getColor() {
+            return color;
+        }
+
+        public byte getNumber() {
+            return number;
+        }
+    }
+
+    class Player {
+        private Tile[][] wall = new Tile[5][5];
+        private Row[] patternWall = new Row[5];
+        private Tile[] floor = new Tile[7];
+        private byte points;
+
+        public boolean firstFromMiddle;
+
+        public Tile[][] getWall() {
+            return wall;
+        }
+
+        public Row[] getPatternWall() {
+            return patternWall;
+        }
+
+        public Tile[] getFloor() {
+            return floor;
+        }
+
+        public byte getPoints() {
+            return points;
+        }
+
+        public byte compareTo(Player other) {
+            // compares this players point to the other players point TODO discuss return
+            // values
+            return 1;
+        }
+
+        public boolean addToPatternWall(byte rowNum, Tile[] tiles) {
+            // adds Tiles to patternwall and returns if it was successful
+            return true;
+        }
+    }
+
+    class Bag {
+        private Tile[] tiles = new Tile[100];
+
+        public Tile[] getTiles() {
+            return tiles;
+        }
+
+        public Tile[] popTiles() {
+            return new Tile[0];
+        }
+    }
+
+    abstract class TileHolder {
+        private Tile[] tiles;
+
+        public void setTiles(Tile[] tiles) {
+
+        }
+
+        public Tile[] getTiles() {
+            return tiles;
+        }
+
+        public Tile[] popTiles(Color color) {
+            return new Tile[0];
+        }
+
+    }
+
+    class ManufactureDisk extends TileHolder {
+
+    }
+
+    class Middle extends TileHolder {
+
+    }
+
+    class GameEngine {
+        private Bag bag;
+        private Middle middle;
+        private ManufactureDisk[] manufactureDisks;
+        private Player[] players;
+        public byte startingPlayerIndex;
+        public byte actualPlayerIndex;
+
+        public void shuffleTo(ManufactureDisk[] disks) {
+
+        }
+
+        private int evaluatePlayer() {
+            return 0;
+        }
+
+        public Player[] getPlayers() {
+            return players;
+        }
+
+        public ManufactureDisk[] getManufactureDisks() {
+            return manufactureDisks;
+        }
+
+        public Middle getMiddle() {
+            return middle;
+        }
+
+        public Bag getBag() {
+            return bag;
+        }
+
+        public void init() {
+
+        }
+
+        public void startGame() {
+
+        }
+
+        public Player getWinner() {
+            return new Player();
+        }
+
+        public Player getCurrentPlayer() {
+            return new Player();
+        }
+
+        public boolean checkWin(){
+            return true;
+        }
+    }
 }
