@@ -12,4 +12,14 @@ class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
+
+    @Test
+    void BagHas() {
+        Bag bag = new Bag();
+        var tiles = bag.popTiles();
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(tiles.get());
+        }
+    }
 }
