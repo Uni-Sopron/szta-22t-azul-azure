@@ -12,7 +12,6 @@ class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
-
     @Test
     void popTileFromBag() {
         Bag bag = new Bag();
@@ -67,5 +66,6 @@ class AppTest {
     void checkWin() {
         GameEngine gameEngine = new GameEngine();
         assertNotNull(gameEngine.checkWin(), "Should return if a game is won");
+
     }
 }

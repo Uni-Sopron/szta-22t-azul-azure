@@ -34,7 +34,6 @@ class Bag {
 
         Tile[] poppedTiles = tiles.stream().limit(5).map(__ -> tiles.pop()).toArray(Tile[]::new);
 
-
         return Optional.of(poppedTiles);
 
     }

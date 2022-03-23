@@ -1,7 +1,9 @@
 package azul;
 
-public class Tile {
-    private Color color;
+
+public class Tile{
+  
+  private final Color color;
 
     public Tile(Color color){
         this.color=color;
@@ -14,4 +16,5 @@ public class Tile {
     public boolean equals(Color gotColor) {
         return gotColor == color;
     }
+
 }
