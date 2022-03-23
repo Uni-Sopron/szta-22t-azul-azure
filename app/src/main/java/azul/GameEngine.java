@@ -16,14 +16,6 @@ class GameEngine {
 
     }
 
-    /**
-     * ???
-     * @return
-     */
-    private int evaluatePlayer() {
-        return 0;
-    }
-
     public Player[] getPlayers() {
         return players;
     }
