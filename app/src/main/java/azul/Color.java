@@ -1,10 +1,5 @@
 package azul;
 
 public enum Color {
-    White,
-    Red,
-    Green,
-    Blue,
-    Yellow,
-    FirstPlayer
+    WHITE, RED, GREEN, BLUE, YELLOW, FIRSTPLAYER
 }
