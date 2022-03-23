@@ -9,7 +9,7 @@ class GameEngine {
     public byte actualPlayerIndex;
 
     /**
-     * Shuffles Tiles to manufacture disks
+     * Shuffles Tiles to the given manufacture disks
      * @param disks
      */
     public void shuffleTo(ManufactureDisk[] disks) {
