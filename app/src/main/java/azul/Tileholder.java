@@ -1,23 +1,38 @@
 package azul;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 abstract class TileHolder {
-    private Tile[] tiles;
+    protected final List<Tile> tiles;
 
-    public void setTiles(Tile[] tiles) {
-
+    protected TileHolder() {
+        tiles = new ArrayList<>();
     }
 
-    public Tile[] getTiles() {
+    public void setTiles(List<Tile> tiles) {
+        this.tiles.addAll(tiles);
+    }
+
+    public List<Tile> getTiles() {
         return tiles;
     }
 
     /**
      * Returns all tiles from the tileholder from the specific color
+     * 
      * @param color
      * @return
      */
-    public Tile[] popTiles(Color color) {
-        return new Tile[0];
+    protected Optional<List<Tile>> popTiles(Color color) {
+        List<Tile> popped = tiles.stream().filter(t -> t.getColor() == color).toList();
+
+        if (popped.isEmpty())
+            return Optional.empty();
+
+        tiles.removeIf(t -> t.getColor() == color);
+        return Optional.of(popped);
     }
 
 }

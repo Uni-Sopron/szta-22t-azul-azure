@@ -8,13 +8,7 @@ class GameEngine {
     public byte startingPlayerIndex;
     public byte actualPlayerIndex;
 
-    /**
-     * Shuffles Tiles to the given manufacture disks
-     * @param disks
-     */
-    public void shuffleTo(ManufactureDisk[] disks) {
 
-    }
 
     public Player[] getPlayers() {
         return players;
@@ -48,7 +42,7 @@ class GameEngine {
         return new Player();
     }
 
-    public boolean checkWin(){
+    public boolean checkWin() {
         return true;
     }
 }

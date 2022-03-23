@@ -1,20 +1,34 @@
 package azul;
 
 
-public class Tile{
-  
-  private final Color color;
+public class Tile {
 
-    public Tile(Color color){
-        this.color=color;
+    private final Color color;
+
+    public Tile(Color color) {
+        this.color = color;
     }
 
     public Color getColor() {
         return color;
     }
 
-    public boolean equals(Color gotColor) {
-        return gotColor == color;
+    @Override
+    public int hashCode() {
+        return color.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+
+        if (other == this)
+            return true;
+
+        if (!(other instanceof Tile))
+            return false;
+
+
+        return this.color == ((Tile) other).getColor();
     }
 
 }
