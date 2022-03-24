@@ -27,10 +27,7 @@ class BagManufactureDiskTest {
         bag = new Bag();
     }
 
-
-
     @ParameterizedTest
-    @Order(1)
     @ValueSource(ints = {3, 5, 7})
     void Manufacturedisks_have_four_tiles_after_shuffle(int diskNum) {
         disks = new ManufactureDisk[diskNum];
@@ -48,7 +45,7 @@ class BagManufactureDiskTest {
     }
 
     @Test
-    @Order(2)
+    @Order(1)
     void Bag_has_exactly_100_tiles() {
 
         disks = new ManufactureDisk[25];
@@ -60,12 +57,10 @@ class BagManufactureDiskTest {
         var poppedTilesSize = ((List<Tile>) Arrays.asList(disks).stream().map(d -> d.getTiles())
                 .flatMap(Collection::stream).collect(Collectors.toList())).size();
         assertEquals(100, poppedTilesSize);
-
     }
 
-
     @Test
-    @Order(3)
+    @Order(2)
     void Bag_colors_equally_distributed() {
 
         disks = new ManufactureDisk[25];
@@ -83,7 +78,5 @@ class BagManufactureDiskTest {
         for (var occurenceCount : occurences.values()) {
             assertEquals(20, occurenceCount);
         }
-
     }
-
 }

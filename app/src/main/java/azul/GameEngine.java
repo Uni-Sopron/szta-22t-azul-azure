@@ -5,10 +5,8 @@ class GameEngine {
     private Middle middle;
     private ManufactureDisk[] manufactureDisks;
     private Player[] players;
-    public byte startingPlayerIndex;
-    public byte actualPlayerIndex;
-
-
+    public int startingPlayerIndex;
+    public int actualPlayerIndex;
 
     public Player[] getPlayers() {
         return players;
@@ -26,13 +24,9 @@ class GameEngine {
         return bag;
     }
 
-    public void init() {
+    public void init() {}
 
-    }
-
-    public void startGame() {
-
-    }
+    public void startGame() {}
 
     public Player getWinner() {
         return new Player();

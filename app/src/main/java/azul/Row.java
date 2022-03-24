@@ -2,13 +2,13 @@ package azul;
 
 public class Row {
     private Color color;
-    private byte number;
+    private int number;
 
     public Color getColor() {
         return color;
     }
 
-    public byte getNumber() {
+    public int getNumber() {
         return number;
     }
 }

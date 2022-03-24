@@ -1,10 +1,10 @@
 package azul;
 
-class Player {
+class Player implements Comparable<Player> {
     private Tile[][] wall = new Tile[5][5];
     private Row[] patternWall = new Row[5];
     private Tile[] floor = new Tile[7];
-    private byte points;
+    private int points;
 
     public boolean firstFromMiddle;
 
@@ -20,23 +20,24 @@ class Player {
         return floor;
     }
 
-    public byte getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public byte compareTo(Player other) {
-        // compares this players point to the other players point TODO discuss return
-        // values
-        return 1;
+    @Override
+    public int compareTo(Player other) {
+        return getPoints() == other.getPoints() ? 0 : getPoints() > other.getPoints() ? 1 : -1;
     }
 
     /**
-     * Based on the given row index tries to put the given tiles to that row and returns if it was successful
+     * Based on the given row index tries to put the given tiles to that row and returns if it was
+     * successful
+     *
      * @param rowNum
      * @param tiles
      * @return is successful
      */
-    public boolean addToPatternWall(byte rowNum, Tile[] tiles) {
+    public boolean addToPatternWall(int rowNum, Tile[] tiles) {
         return true;
     }
 }
