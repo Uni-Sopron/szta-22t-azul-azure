@@ -3,13 +3,7 @@
  */
 package azul;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 
 class BagTest {
 
@@ -20,16 +14,5 @@ class BagTest {
         bag = new Bag();
     }
 
-    @Test
-    @Order(1)
-    void Bag_has_100_tiles() {
-        List<Tile> popped_tiles = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            var tiles = bag.popTiles();
-            assertTrue(tiles.isPresent());
-            popped_tiles.addAll(Arrays.asList(tiles.get()));
-        }
-        assertTrue(bag.popTiles().isEmpty());
 
-    }
 }

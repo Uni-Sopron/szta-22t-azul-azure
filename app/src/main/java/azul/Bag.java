@@ -13,13 +13,39 @@ class Bag {
 
     public Bag() {
         Tile[] preTiles = new Tile[100];
-        Arrays.fill(preTiles, 0, 20, new Tile(Color.BLUE));
-        Arrays.fill(preTiles, 20, 40, new Tile(Color.GREEN));
-        Arrays.fill(preTiles, 40, 60, new Tile(Color.RED));
-        Arrays.fill(preTiles, 60, 80, new Tile(Color.YELLOW));
-        Arrays.fill(preTiles, 80, 100, new Tile(Color.WHITE));
+        for (int i = 0; i < 20; i++) {
+            preTiles[i] = new Tile(Color.BLUE);
+        }
+        for (int i = 20; i < 40; i++) {
+            preTiles[i] = new Tile(Color.GREEN);
+        }
+        for (int i = 40; i < 60; i++) {
+            preTiles[i] = new Tile(Color.RED);
+        }
+        for (int i = 60; i < 80; i++) {
+            preTiles[i] = new Tile(Color.YELLOW);
+        }
+        for (int i = 80; i < 100; i++) {
+            preTiles[i] = new Tile(Color.WHITE);
+        }
+
         Collections.shuffle(Arrays.asList(preTiles), new Random());
         tiles.addAll(Arrays.asList(preTiles));
+
+    }
+
+    /**
+     * Shuffles Tiles to the given manufacture disks
+     * 
+     * @param disks
+     */
+    public void shuffleTo(ManufactureDisk[] disks) {
+        for (var disk : disks) {
+            Optional<Tile[]> poppedTiles = popTiles();
+            if (!poppedTiles.isPresent())
+                return;
+            disk.setTiles(Arrays.asList(poppedTiles.get()));
+        }
     }
 
 
@@ -28,11 +54,12 @@ class Bag {
      * 
      * @return the tiles
      */
-    public Optional<Tile[]> popTiles() {
-        if (tiles.size() < 5)
+    private Optional<Tile[]> popTiles() {
+        if (tiles.size() < 4)
             return Optional.empty();
 
-        Tile[] poppedTiles = tiles.stream().limit(5).map(__ -> tiles.pop()).toArray(Tile[]::new);
+        Tile[] poppedTiles = tiles.stream().limit(4).map(__ -> tiles.pop()).toArray(Tile[]::new);
+
 
         return Optional.of(poppedTiles);
 
