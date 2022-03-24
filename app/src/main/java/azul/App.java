@@ -5,12 +5,10 @@ package azul;
 
 public class App {
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 
     public String getGreeting() {
         System.out.println("Hello!");
-        return("app should have a greeting");
+        return ("app should have a greeting");
     }
 }
