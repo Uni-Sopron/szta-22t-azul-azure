@@ -1,15 +1,12 @@
 name: Build
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
+  # Builds the current source code and run all tests.
+  # Fails if the code cannot be compiled or any of the tests fails.
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 17
@@ -22,6 +19,7 @@ jobs:
         with:
           arguments: build
 
+  # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
     runs-on: ubuntu-latest
     needs: build
@@ -36,11 +34,12 @@ jobs:
           clean: true
           folder: app/build/docs/aggregateJavadoc
           target-folder: /
-          
+
+  # In case this is a tag, create a Docker image from the branch, build it and deploy it to DockerHub.
   docker-publish:
+    if: github.event_name == 'push'  && contains(github.ref, 'refs/tags/')
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Log in to Docker Hub
