@@ -18,6 +18,12 @@ jobs:
         uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
         with:
           arguments: build
+      # User-friendly display of the test results.
+      - name: Junit test reporter
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: "app/build/test-results/test/TEST-*.xml"
 
   # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
