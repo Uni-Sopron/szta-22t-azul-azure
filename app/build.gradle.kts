@@ -27,7 +27,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("azureboiler.App")
+    mainClass.set("azul.App")
 }
 
 tasks.withType<Jar> {
