@@ -16,8 +16,11 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import azul.mocks.ManufactureDiskMock;
 
-class BagManufactureDiskTest {
+
+
+class BagTest {
 
     Bag bag;
     ManufactureDisk[] disks;
@@ -32,8 +35,9 @@ class BagManufactureDiskTest {
     void Manufacturedisks_have_four_tiles_after_shuffle(int diskNum) {
         disks = new ManufactureDisk[diskNum];
         for (int i = 0; i < diskNum; i++) {
-            disks[i] = new ManufactureDisk();
+            disks[i] = new ManufactureDiskMock();
         }
+
 
         assertDoesNotThrow(() -> bag.shuffleTo(disks));
 
@@ -50,7 +54,7 @@ class BagManufactureDiskTest {
 
         disks = new ManufactureDisk[25];
         for (int i = 0; i < 25; i++) {
-            disks[i] = new ManufactureDisk();
+            disks[i] = new ManufactureDiskMock();
         }
         bag.shuffleTo(disks);
 
@@ -65,7 +69,7 @@ class BagManufactureDiskTest {
 
         disks = new ManufactureDisk[25];
         for (int i = 0; i < 25; i++) {
-            disks[i] = new ManufactureDisk();
+            disks[i] = new ManufactureDiskMock();
         }
         bag.shuffleTo(disks);
         var poppedTiles = (List<Tile>) Arrays.asList(disks).stream().map(d -> d.getTiles()).toList()
