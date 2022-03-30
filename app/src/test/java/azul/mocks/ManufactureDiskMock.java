@@ -1,12 +1,13 @@
-package azul;
+package azul.mocks;
 
+import java.util.ArrayList;
 import java.util.List;
+import azul.ManufactureDisk;
+import azul.Tile;
 
-public class ManufactureDisk extends TileHolder {
+public class ManufactureDiskMock extends ManufactureDisk {
+    private final List<Tile> tiles = new ArrayList<Tile>();;
 
-    public ManufactureDisk() {
-        super();
-    }
 
     @Override
     public void setTiles(List<Tile> tilesToAdd) {
