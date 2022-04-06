@@ -1,4 +1,4 @@
-package azul;
+package hu.azul;
 
 public class Row {
     private Color color;

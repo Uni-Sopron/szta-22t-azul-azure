@@ -1,4 +1,4 @@
-package azul;
+package hu.azul;
 
 class Player implements Comparable<Player> {
     private Tile[][] wall = new Tile[5][5];

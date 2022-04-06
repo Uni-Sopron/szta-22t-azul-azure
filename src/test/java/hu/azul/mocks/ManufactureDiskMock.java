@@ -1,9 +1,9 @@
-package azul.mocks;
+package hu.azul.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
-import azul.ManufactureDisk;
-import azul.Tile;
+import hu.azul.ManufactureDisk;
+import hu.azul.Tile;
 
 public class ManufactureDiskMock extends ManufactureDisk {
     private final List<Tile> tiles = new ArrayList<Tile>();;

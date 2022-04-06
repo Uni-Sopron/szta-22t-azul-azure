@@ -1,4 +1,4 @@
-package azul;
+package hu.azul;
 
 import java.util.ArrayList;
 import java.util.List;

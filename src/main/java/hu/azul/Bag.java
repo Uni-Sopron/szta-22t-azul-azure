@@ -1,4 +1,4 @@
-package azul;
+package hu.azul;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

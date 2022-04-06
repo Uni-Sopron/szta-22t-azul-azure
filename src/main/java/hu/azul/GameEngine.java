@@ -1,4 +1,4 @@
-package azul;
+package hu.azul;
 
 class GameEngine {
     private Bag bag;
