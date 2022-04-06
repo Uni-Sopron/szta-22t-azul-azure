@@ -1,6 +1,18 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - "featuresLorem"
+      - "abelfeatures"
+      - "FeaturesJB"
+  pull_request:
+    branches:
+      - main
+      - "featuresLorem"
+      - "abelfeatures"
+      - "FeaturesJB"
 
 jobs:
   # Builds the current source code and run all tests.
