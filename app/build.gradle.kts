@@ -16,6 +16,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
     pmd
+    jacoco
     id("io.freefair.aggregate-javadoc") version "6.4.1"
 }
 
@@ -48,6 +49,24 @@ tasks.register<JavaExec>("runWithJavaExec") {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+    }
 }
 
 // This will automatically run on the build action alongside with the compile and test task. Yey :)
