@@ -3,5 +3,4 @@
 .idea
 # Ignore Gradle build output directory
 build
-
 app/bin/*

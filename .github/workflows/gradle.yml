@@ -45,7 +45,8 @@ jobs:
         if: always() # always run even if the previous step fails
         with:
           report_paths: "app/build/test-results/test/TEST-*.xml"
-
+      - name: Generate additional badges
+        run: cd indicators && sudo python get_badges.py
   # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
     runs-on: ubuntu-latest
