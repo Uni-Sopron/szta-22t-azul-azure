@@ -47,20 +47,7 @@ jobs:
           report_paths: "app/build/test-results/test/TEST-*.xml"
       - name: Generate additional badges
         run: cd indicators && sudo python get_badges.py
-      - name: Deploy PMD check
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: gh-pages
-          clean: true
-          folder: app/build/reports/pmd
-          target-folder: /pmd
-      - name: Deploy JaCoCo coverage
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: gh-pages
-          clean: true
-          folder: app/build/reports/jacoco/test/html
-          target-folder: /coveragejacoco
+
   # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
     runs-on: ubuntu-latest
