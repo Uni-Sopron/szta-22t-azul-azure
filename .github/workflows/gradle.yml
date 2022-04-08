@@ -59,7 +59,7 @@ jobs:
         with:
           branch: gh-pages
           clean: true
-          folder: app/build/reports/jacoco/html
+          folder: app/build/reports/jacoco/test/html
           target-folder: /coveragejacoco
   # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
