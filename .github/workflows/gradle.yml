@@ -39,14 +39,37 @@ jobs:
         uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
         with:
           arguments: build
+
+      - name: Check PMD
+        uses: pmd/pmd-github-action@v1
+        id: pmd
+        with:
+          version: "6.44.0"
+          sourcePath: "app/src"
+          rulesets: "ruleset.xml"
       # User-friendly display of the test results.
       - name: Junit test reporter
         uses: mikepenz/action-junit-report@v3
         if: always() # always run even if the previous step fails
         with:
           report_paths: "app/build/test-results/test/TEST-*.xml"
-      - name: Generate additional badges
-        run: cd indicators && sudo python get_badges.py
+      - name: Run Test Coverage
+        run: ./gradlew jacocoTestReport
+
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: app/build/reports/jacoco/test/jacocoTestReport.csv
+          on-missing-report: fail
+          fail-if-coverage-less-than: 50
+
+      - name: Commit and push the badge (if it changed)
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: "commit badge"
+          add: "*.svg"
 
   # After succesful build, generate javadoc, and then deploy it to the "gh-pages" branch.
   javadoc:
