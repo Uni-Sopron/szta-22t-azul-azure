@@ -6,16 +6,20 @@
  * User Manual available at https://docs.gradle.org/7.3/userguide/building_java_projects.html
  */
 
-plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
-    id("io.freefair.aggregate-javadoc") version "6.4.1"
-}
-
-repositories {
+ repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
+
+
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    application
+    pmd
+    jacoco
+    id("io.freefair.aggregate-javadoc") version "6.4.1"
+}
+
 
 dependencies {
     // Use JUnit Jupiter for testing.
@@ -45,4 +49,35 @@ tasks.register<JavaExec>("runWithJavaExec") {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+    }
+}
+
+// This will automatically run on the build action alongside with the compile and test task. Yey :)
+pmd {
+
+    isIgnoreFailures = true
+    isConsoleOutput = true
+    toolVersion = "6.44.0"
+    ruleSets = listOf()
+    ruleSetConfig = resources.text.fromFile("../ruleset.xml")
 }
