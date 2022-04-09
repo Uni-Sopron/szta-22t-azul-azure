@@ -3,3 +3,4 @@
 <a href="https://uni-sopron.github.io/szta-22t-azul-azure"><img src="https://img.shields.io/badge/documentation-online-green?logo=googlechrome"/></a>
 ![Coverage](.github/badges/jacoco.svg)
 ![Branches](.github/badges/branches.svg)
+<a href="https://uni-sopron.github.io/szta-22t-azul-azure"><img src="/.github/badges/pmd.svg"/></a>
