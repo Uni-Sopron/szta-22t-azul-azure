@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">azul</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package azul;
+
+<span class="fc" id="L3">class Player implements Comparable&lt;Player&gt; {</span>
+<span class="fc" id="L4">    private Tile[][] wall = new Tile[5][5];</span>
+<span class="fc" id="L5">    private Row[] patternWall = new Row[5];</span>
+<span class="fc" id="L6">    private Tile[] floor = new Tile[7];</span>
+    private int points;
+
+    public boolean firstFromMiddle;
+
+    public Tile[][] getWall() {
+<span class="nc" id="L12">        return wall;</span>
+    }
+
+    public Row[] getPatternWall() {
+<span class="nc" id="L16">        return patternWall;</span>
+    }
+
+    public Tile[] getFloor() {
+<span class="nc" id="L20">        return floor;</span>
+    }
+
+    public int getPoints() {
+<span class="nc" id="L24">        return points;</span>
+    }
+
+    @Override
+    public int compareTo(Player other) {
+<span class="nc bnc" id="L29" title="All 4 branches missed.">        return getPoints() == other.getPoints() ? 0 : getPoints() &gt; other.getPoints() ? 1 : -1;</span>
+    }
+
+    /**
+     * Based on the given row index tries to put the given tiles to that row and returns if it was
+     * successful
+     *
+     * @param rowNum
+     * @param tiles
+     * @return is successful
+     */
+    public boolean addToPatternWall(int rowNum, Tile[] tiles) {
+<span class="nc" id="L41">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
