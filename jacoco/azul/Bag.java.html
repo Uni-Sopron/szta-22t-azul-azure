@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bag.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">azul</a> &gt; <span class="el_source">Bag.java</span></div><h1>Bag.java</h1><pre class="source lang-java linenums">package azul;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.Optional;
+import java.util.Random;
+
+class Bag {
+<span class="fc" id="L11">    private final Deque&lt;Tile&gt; tiles = new ArrayDeque&lt;&gt;();</span>
+
+
+<span class="fc" id="L14">    public Bag() {</span>
+<span class="fc" id="L15">        Tile[] preTiles = new Tile[100];</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (int i = 0; i &lt; 20; i++) {</span>
+<span class="fc" id="L17">            preTiles[i] = new Tile(Color.BLUE);</span>
+        }
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (int i = 20; i &lt; 40; i++) {</span>
+<span class="fc" id="L20">            preTiles[i] = new Tile(Color.GREEN);</span>
+        }
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        for (int i = 40; i &lt; 60; i++) {</span>
+<span class="fc" id="L23">            preTiles[i] = new Tile(Color.RED);</span>
+        }
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (int i = 60; i &lt; 80; i++) {</span>
+<span class="fc" id="L26">            preTiles[i] = new Tile(Color.YELLOW);</span>
+        }
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int i = 80; i &lt; 100; i++) {</span>
+<span class="fc" id="L29">            preTiles[i] = new Tile(Color.WHITE);</span>
+        }
+
+<span class="fc" id="L32">        Collections.shuffle(Arrays.asList(preTiles), new Random());</span>
+<span class="fc" id="L33">        tiles.addAll(Arrays.asList(preTiles));</span>
+
+<span class="fc" id="L35">    }</span>
+
+    /**
+     * Shuffles Tiles to the given manufacture disks
+     * 
+     * @param disks
+     */
+    public void shuffleTo(ManufactureDisk[] disks) {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (var disk : disks) {</span>
+<span class="fc" id="L44">            Optional&lt;Tile[]&gt; poppedTiles = popTiles();</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            if (!poppedTiles.isPresent())</span>
+<span class="nc" id="L46">                return;</span>
+<span class="fc" id="L47">            disk.setTiles(Arrays.asList(poppedTiles.get()));</span>
+        }
+<span class="fc" id="L49">    }</span>
+
+
+    /**
+     * Puts out tiles from the bag
+     * 
+     * @return the tiles
+     */
+    private Optional&lt;Tile[]&gt; popTiles() {
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (tiles.size() &lt; 4)</span>
+<span class="nc" id="L59">            return Optional.empty();</span>
+
+<span class="fc" id="L61">        Tile[] poppedTiles = tiles.stream().limit(4).map(__ -&gt; tiles.pop()).toArray(Tile[]::new);</span>
+
+
+<span class="fc" id="L64">        return Optional.of(poppedTiles);</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
