@@ -52,9 +52,41 @@ tasks.named<Test>("test") {
 }
 
 
+
+tasks.register<Copy>("collectJacoco") {
+    dependsOn("jacocoTestReport")
+    from(layout.buildDirectory.dir("reports/jacoco/test/html"))
+    include("*")
+    include("/**")
+    into(layout.buildDirectory.dir("doc/jacoco"))
+}
+tasks.register<Copy>("collectPMD") {
+    from(layout.buildDirectory.dir("reports/pmd"))
+    include("*")
+    include("/**")
+    into(layout.buildDirectory.dir("doc/pmd"))
+}
+tasks.register<Copy>("collectJavadoc") {
+    dependsOn("aggregateJavadoc")
+    from(layout.buildDirectory.dir("docs/aggregateJavadoc"))
+    include("*")
+    include("/**")
+    into(layout.buildDirectory.dir("doc/javadoc"))
+}
+
+tasks.build {
+    finalizedBy("collectPMD")
+    finalizedBy("collectJacoco")
+    finalizedBy("collectJavadoc")
+}
+
+
 tasks.test {
     finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+    finalizedBy(tasks.aggregateJavadoc)
+   
 }
+
 tasks.jacocoTestReport {
     dependsOn(tasks.test) // tests are required to run before generating the report
 }
@@ -68,7 +100,7 @@ jacoco {
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
-        csv.required.set(false)
+        csv.required.set(true)
     }
 }
 
@@ -81,3 +113,5 @@ pmd {
     ruleSets = listOf()
     ruleSetConfig = resources.text.fromFile("../ruleset.xml")
 }
+
+
