@@ -57,17 +57,20 @@ tasks.register<Copy>("collectJacoco") {
     dependsOn("jacocoTestReport")
     from(layout.buildDirectory.dir("reports/jacoco/test/html"))
     include("*")
+    include("/**")
     into(layout.buildDirectory.dir("doc/jacoco"))
 }
 tasks.register<Copy>("collectPMD") {
     from(layout.buildDirectory.dir("reports/pmd"))
     include("*")
+    include("/**")
     into(layout.buildDirectory.dir("doc/pmd"))
 }
 tasks.register<Copy>("collectJavadoc") {
     dependsOn("aggregateJavadoc")
     from(layout.buildDirectory.dir("docs/aggregateJavadoc"))
     include("*")
+    include("/**")
     into(layout.buildDirectory.dir("doc/javadoc"))
 }
 
