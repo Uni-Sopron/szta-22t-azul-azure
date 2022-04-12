@@ -7,4 +7,5 @@ README.md
 .vscode/*
 .git/*
 diagrams/*
-indicators/badges/*
+.github/*
+
