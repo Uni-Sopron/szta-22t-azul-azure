@@ -24,6 +24,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Lint Code Base
+        if: github.ref == 'refs/heads/main'
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: false
@@ -65,6 +66,7 @@ jobs:
           fail-if-coverage-less-than: 50
 
       - name: Collect documentations (Javadoc, PMD, coverage)
+        if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
@@ -81,7 +83,7 @@ jobs:
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-      - name: Commit the badges (only on feature branches)
+      - name: Commit the badges
         if: github.ref != 'refs/heads/main'
         run: |
           if [[ `git status --porcelain` ]]; then
