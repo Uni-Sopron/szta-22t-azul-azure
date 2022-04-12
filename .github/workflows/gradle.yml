@@ -81,12 +81,13 @@ jobs:
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-      - name: Commit the badges (if it changed)
+      - name: Commit the badges (only on feature branches)
+        if: github.ref != 'refs/heads/main'
         run: |
           if [[ `git status --porcelain` ]]; then
           git config --global user.name 'github_actions'
           git config --global user.email 'github_actions@users.noreply.github.com'
-          git add .github/badges/*.svg
+          git add .github/badges/*.svg -f
           git commit -m "Commit badges"
           git push origin HEAD:${GITHUB_REF_NAME}
           fi
