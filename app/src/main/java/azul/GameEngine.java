@@ -1,5 +1,7 @@
 package azul;
 
+import java.util.Arrays;
+
 class GameEngine {
     private Bag bag;
     private Middle middle;
@@ -24,7 +26,10 @@ class GameEngine {
         return bag;
     }
 
-    public void init() {}
+    public void init() {
+        String[] pNamesInit = new String[3];
+        InputParser.SetupData setupData = new InputParser.SetupData(pNamesInit,GameMode.CLASSIC,4);
+    }
 
     public void startGame() {}
 

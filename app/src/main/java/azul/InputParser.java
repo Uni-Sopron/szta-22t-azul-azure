@@ -7,10 +7,11 @@ public class InputParser {
         System.out.println("InputParser work ...");
 
         String[] s;
-        s = new String[]{"Player1", "Player2"};
+        s = new String[]{null, null, null, null};
 
-        SetupData setupData = new SetupData(s,GameMode.CLASSIC,2);
-        setupData.parseSetup();
+        SetupData setupData = new SetupData(s,GameMode.CLASSIC,4);
+        setupData = setupData.parseSetup();
+        System.out.println(setupData);
     }
     static class SetupData {
 
@@ -34,17 +35,33 @@ public class InputParser {
 
             for(int i = 0; i<playerNumber; i++) {
                 do {
-                    System.out.println("Enter the name of player " + i + ". :");
+                    System.out.println("Enter the name of player " + (i+1) + ". :");
                     playerNames[i] = sc.nextLine();
                 } while( !isValidName(playerNames[i]));
             }
 
-            String gm;
+            int gmType = 0;
             do {
-                System.out.println("Enter the type of gamemode: \n> Classic: CLASSIC\n> Alternative: ALTERNATIVE");
-                gm = sc.nextLine();
-            } while( !isValidGamemode(gm));
+                System.out.println("Enter the number of gamemode: \n> 1: classic mode\n> 2: alternative mode");
+                gmType = sc.nextInt();
+                if(gmType == 1) {
+                    gameMode = GameMode.CLASSIC;
+                }
+                if(gmType == 2) {
+                    gameMode = GameMode.ALTERNATIVE;
+                }
+            } while( !isValidGameMode(gmType));
+
             return new SetupData(playerNames, gameMode, playerNumber);
+        }
+
+        private boolean isValidGameMode(int pNumber){
+            if(pNumber == 1 || pNumber == 2) {
+                return true;
+            }  else {
+                System.out.println("The value must be between 1-2!");
+                return false;
+            }
         }
 
         private boolean isValidPlayerNumber(int pNumber){
@@ -55,15 +72,8 @@ public class InputParser {
         }
 
         private boolean isValidName(String name){
-            if(name.isEmpty()){
+            if(name == null || name.isEmpty()){
                 System.out.println("Wrong name!" );
-                return false;
-            }  else return true;
-        }
-
-        private boolean isValidGamemode(String mode){
-            if(mode == "CLASSIC" || mode == "ALTERNATIVE"){
-                System.out.println("The value should be CLASSIC or ALTERNATIVE!");
                 return false;
             }  else return true;
         }
