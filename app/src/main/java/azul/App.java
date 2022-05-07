@@ -3,6 +3,9 @@
  */
 package azul;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
@@ -19,7 +22,12 @@ public class App {
     }
 
     class Tile {
+
         private Color color;
+
+        public Tile(Color color) {
+            this.color = color;
+        }
 
         public Color getColor() {
             return color;
@@ -92,10 +100,43 @@ public class App {
     }
 
     abstract class TileHolder {
-        private Tile[] tiles;
 
-        public void setTiles(Tile[] tiles) {
+        // átírtam addtilesra, mert ugye, amikor először teszünk rá tileokat, akkor is
+        // kvázi a 0 Tile mellé rakunk 5-öt,
+        // viszont utána, amikor feltöltjük és volt már három, akkor ugye csak 2-t
+        // rakunk mellé
+        public abstract void addTiles(Tile[] tiles);
 
+        public abstract Tile[] getTiles();
+
+        public abstract Tile[] popTiles(Color color);
+
+    }
+
+    class ManufactureDisk extends TileHolder {
+        private Tile[] tiles = new Tile[5];
+
+        public ManufactureDisk() {
+            for (int i = 0; i < tiles.length; i++) {
+                tiles[i] = null;
+            }
+        }
+
+        public void addTiles(Tile[] tiles) {
+            if (this.tiles.length + tiles.length <= 5) {
+                byte counter = 0;
+                for (int i = 0; i < tiles.length; i++) {
+                    if (this.tiles[i] == null) {
+                        this.tiles[i] = tiles[counter];
+                        counter++;
+                    }
+                }
+                if (counter != this.tiles.length - 1) {
+                    throw new Error("Some semantical error happened in the code...");
+                }
+            } else {
+                throw new Error("Cannot add this much Tile.");
+            }
         }
 
         public Tile[] getTiles() {
@@ -103,17 +144,60 @@ public class App {
         }
 
         public Tile[] popTiles(Color color) {
-            return new Tile[0];
+            byte size = 0;
+            for (int i = 0; i < tiles.length; i++) {
+                if (tiles[i].color == color) {
+                    size++;
+                }
+            }
+            Tile[] tempTiles = new Tile[size];
+            byte counter = 0;
+            for (int i = 0; i < tiles.length; i++) {
+                if (tiles[i].color == color) {
+                    tempTiles[counter] = new Tile(color);
+                    counter++;
+                    tiles[i] = null;
+                }
+            }
+            return tempTiles;
         }
-
-    }
-
-    class ManufactureDisk extends TileHolder {
-
     }
 
     class Middle extends TileHolder {
+        private ArrayList<Tile> tiles = new ArrayList<>() ;
 
+        public void addTiles(Tile[] tiles) {
+            for (int i = 0; i < tiles.length; i++) {
+                this.tiles.add(tiles[i]);
+            }
+        }
+
+        public Tile[] getTiles() {
+            Tile[] tempTiles = new Tile[tiles.size()];
+            for (int i = 0; i < tiles.size(); i++) {
+                tempTiles[i]=tiles.get(i);
+            }
+            return tempTiles;
+        }
+
+        public Tile[] popTiles(Color color) {
+            byte size = 0;
+            for (int i = 0; i < tiles.size(); i++) {
+                if (tiles.get(i).color == color) {
+                    size++;
+                }
+            }
+            Tile[] tempTiles = new Tile[size];
+            byte counter = 0;
+            for (int i = 0; i < tiles.size(); i++) {
+                if (tiles.get(i).color == color) {
+                    tempTiles[counter] = new Tile(color);
+                    counter++;
+                    tiles.remove(i);
+                }
+            }
+            return tempTiles;
+        }
     }
 
     class GameEngine {
@@ -164,7 +248,7 @@ public class App {
             return new Player();
         }
 
-        public boolean checkWin(){
+        public boolean checkWin() {
             return true;
         }
     }
