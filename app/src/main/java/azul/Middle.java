@@ -2,26 +2,42 @@ package azul;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
 
 class Middle extends TileHolder {
-    public Middle() {
-        super();
-        tiles.add(new Tile(Color.FIRSTPLAYER));
+    private ArrayList<Tile> tiles = new ArrayList<>() ;
+
+    public void addTiles(Tile[] tiles) {
+        for (int i = 0; i < tiles.length; i++) {
+            this.tiles.add(tiles[i]);
+        }
     }
 
-    @Override
-    protected Optional<List<Tile>> popTiles(Color color) {
-        Optional<List<Tile>> tilesToBack = super.popTiles(color);
-        tilesToBack.ifPresent(__ -> {
-            if (!tiles.isEmpty() && tiles.get(0).getColor().equals(Color.FIRSTPLAYER)) {
-                Tile firstPlayerTile = tiles.get(0);
-                tiles.remove(0);
-                tilesToBack.get().add(firstPlayerTile);
+    public Tile[] getTiles() {
+        Tile[] tempTiles = new Tile[tiles.size()];
+        for (int i = 0; i < tiles.size(); i++) {
+            tempTiles[i]=tiles.get(i);
+        }
+        return tempTiles;
+    }
+
+    public Tile[] popTiles(Color color) {
+        byte size = 0;
+        for (int i = 0; i < tiles.size(); i++) {
+            if (tiles.get(i).getColor() == color) {
+                size++;
             }
-
-        });
-
-        return tilesToBack;
+        }
+        Tile[] tempTiles = new Tile[size];
+        byte counter = 0;
+        for (int i = 0; i < tiles.size(); i++) {
+            if (tiles.get(i).getColor() == color) {
+                tempTiles[counter] = new Tile(color);
+                counter++;
+                tiles.remove(i);
+            }
+        }
+        return tempTiles;
     }
-
 }
+
