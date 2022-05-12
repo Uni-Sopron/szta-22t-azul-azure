@@ -1,6 +1,6 @@
 package azul.interfaces;
 
-public interface DrawEngine {
+public interface DrawHandler {
 
     void drawState();
 

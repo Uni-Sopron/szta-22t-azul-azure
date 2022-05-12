@@ -1,5 +1,5 @@
 package azul.interfaces;
 
-public interface AzulUI extends DrawEngine, InputHandler {
+public interface AzulUI extends DrawHandler, InputHandler {
 
 }
