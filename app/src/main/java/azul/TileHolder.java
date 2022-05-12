@@ -10,14 +10,13 @@ public class TileHolder {
     private final String identifier;
     private static List<TileHolder> holders = new ArrayList<TileHolder>();
 
-
-
     protected TileHolder() {
         tiles = new ArrayList<>();
         var id = holders.stream()
                 .filter(h -> h.getClass().getName().equals(this.getClass().getName())).count() + 1;
 
         identifier = this.getClass().getName() + id;
+        holders.add(this);
     }
 
 
