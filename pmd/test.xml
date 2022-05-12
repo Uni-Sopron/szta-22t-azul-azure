@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T06:01:55.252"<?xml version="1.0" encoding="UTF-8"?>>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T06:01:55.252">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T20:56:52.361"<?xml version="1.0" encoding="UTF-8"?>>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T20:56:52.361">
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/test/java/azul/AppTest.java">
 <violation beginline="17" endline="20" begincolumn="5" endcolumn="5" rule="JUnitTestsShouldIncludeAssert" ruleset="Best Practices" package="azul" class="AppTest" method="popTileFromBag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#junittestsshouldincludeassert" priority="3">
 JUnit tests should include assert() or fail()
@@ -40,48 +40,6 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 <violation beginline="22" endline="22" begincolumn="31" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="BagTest" variable="disks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="40" endline="41" begincolumn="45" endcolumn="73" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_has_exactly_100_tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="40" endline="41" begincolumn="45" endcolumn="73" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_has_exactly_100_tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="40" endline="41" begincolumn="45" endcolumn="73" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_has_exactly_100_tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="40" endline="41" begincolumn="45" endcolumn="73" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_has_exactly_100_tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="55" endline="56" begincolumn="40" endcolumn="82" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="58" endline="59" begincolumn="26" endcolumn="91" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="58" endline="59" begincolumn="26" endcolumn="91" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="58" endline="59" begincolumn="26" endcolumn="91" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="61" endline="61" begincolumn="25" endcolumn="41" rule="LawOfDemeter" ruleset="Design" package="azul" class="BagTest" method="Bag_colors_equally_distributed" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
 </file>
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/test/java/azul/ManufactureDiskTest.java">
 <violation beginline="18" endline="18" begincolumn="9" endcolumn="11" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="ManufactureDiskTest" variable="bag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
@@ -89,9 +47,6 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 </violation>
 <violation beginline="19" endline="19" begincolumn="23" endcolumn="27" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="ManufactureDiskTest" variable="disks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
-</violation>
-<violation beginline="38" endline="38" begincolumn="29" endcolumn="50" rule="LawOfDemeter" ruleset="Design" package="azul" class="ManufactureDiskTest" method="Manufacturedisks_have_four_tiles_after_shuffle" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/test/java/azul/mocks/ManufactureDiskMock.java">

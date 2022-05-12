@@ -10,15 +10,14 @@ public class TileHolder {
     private final String identifier;
 <span class="fc" id="L11">    private static List&lt;TileHolder&gt; holders = new ArrayList&lt;TileHolder&gt;();</span>
 
+<span class="fc" id="L13">    protected TileHolder() {</span>
+<span class="fc" id="L14">        tiles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">        var id = holders.stream()</span>
+<span class="fc" id="L16">                .filter(h -&gt; h.getClass().getName().equals(this.getClass().getName())).count() + 1;</span>
 
-
-<span class="fc" id="L15">    protected TileHolder() {</span>
-<span class="fc" id="L16">        tiles = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L17">        var id = holders.stream()</span>
-<span class="pc" id="L18">                .filter(h -&gt; h.getClass().getName().equals(this.getClass().getName())).count() + 1;</span>
-
-<span class="fc" id="L20">        identifier = this.getClass().getName() + id;</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L18">        identifier = this.getClass().getName() + id;</span>
+<span class="fc" id="L19">        holders.add(this);</span>
+<span class="fc" id="L20">    }</span>
 
 
     /**
@@ -27,7 +26,7 @@ public class TileHolder {
      * @return The generated identifier for this TileHolder.
      */
     public String getIdentifier() {
-<span class="nc" id="L30">        return identifier;</span>
+<span class="nc" id="L29">        return identifier;</span>
     }
 
 
@@ -36,17 +35,17 @@ public class TileHolder {
      * @param tiles
      */
     public void setTiles(List&lt;Tile&gt; tiles) {
-<span class="fc" id="L39">        this.tiles.addAll(tiles);</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L38">        this.tiles.addAll(tiles);</span>
+<span class="fc" id="L39">    }</span>
 
 
     /**
      * @return Returns a copy of the inner container with it's Tiles.
      */
     public final List&lt;Tile&gt; getTiles() {
-<span class="fc" id="L47">        var tmp = new ArrayList&lt;Tile&gt;();</span>
-<span class="fc" id="L48">        tmp.addAll(tiles);</span>
-<span class="fc" id="L49">        return tmp;</span>
+<span class="fc" id="L46">        var tmp = new ArrayList&lt;Tile&gt;();</span>
+<span class="fc" id="L47">        tmp.addAll(tiles);</span>
+<span class="fc" id="L48">        return tmp;</span>
     }
 
     /**
@@ -56,14 +55,14 @@ public class TileHolder {
      * @return
      */
     protected Optional&lt;List&lt;Tile&gt;&gt; popTiles(Color color) {
-<span class="nc" id="L59">        List&lt;Tile&gt; popped =</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">                tiles.stream().filter(t -&gt; t.getColor() == color).collect(Collectors.toList());</span>
+<span class="nc" id="L58">        List&lt;Tile&gt; popped =</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                tiles.stream().filter(t -&gt; t.getColor() == color).collect(Collectors.toList());</span>
 
-<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (popped.isEmpty())</span>
-<span class="nc" id="L63">            return Optional.empty();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (popped.isEmpty())</span>
+<span class="nc" id="L62">            return Optional.empty();</span>
 
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        tiles.removeIf(t -&gt; t.getColor() == color);</span>
-<span class="nc" id="L66">        return Optional.of(popped);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        tiles.removeIf(t -&gt; t.getColor() == color);</span>
+<span class="nc" id="L65">        return Optional.of(popped);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
