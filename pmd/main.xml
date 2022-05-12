@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-04-13T19:24:13.034"<?xml version="1.0" encoding="UTF-8"?>>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-04-13T19:24:13.038">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T06:01:53.421"<?xml version="1.0" encoding="UTF-8"?>>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T06:01:53.425">
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/Bag.java">
 <violation beginline="11" endline="11" begincolumn="31" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="Bag" variable="tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
@@ -25,35 +25,70 @@ Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/GameEngine.java">
-<violation beginline="4" endline="4" begincolumn="17" endcolumn="19" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="bag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+<violation beginline="6" endline="6" begincolumn="17" endcolumn="19" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="bag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="4" endline="4" begincolumn="17" endcolumn="19" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="bag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
+<violation beginline="6" endline="6" begincolumn="17" endcolumn="19" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="bag" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
 Private field 'bag' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="5" endline="5" begincolumn="20" endcolumn="25" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="middle" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+<violation beginline="7" endline="7" begincolumn="20" endcolumn="25" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="middle" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="5" endline="5" begincolumn="20" endcolumn="25" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="middle" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
+<violation beginline="7" endline="7" begincolumn="20" endcolumn="25" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="middle" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
 Private field 'middle' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="6" endline="6" begincolumn="31" endcolumn="46" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="manufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+<violation beginline="8" endline="8" begincolumn="31" endcolumn="46" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="manufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="6" endline="6" begincolumn="31" endcolumn="46" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="manufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
+<violation beginline="8" endline="8" begincolumn="31" endcolumn="46" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="manufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
 Private field 'manufactureDisks' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="7" endline="7" begincolumn="22" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="players" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+<violation beginline="9" endline="9" begincolumn="22" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="GameEngine" variable="players" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="7" endline="7" begincolumn="22" endcolumn="28" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="players" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
+<violation beginline="9" endline="9" begincolumn="22" endcolumn="28" rule="ImmutableField" ruleset="Design" package="azul" class="GameEngine" variable="players" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#immutablefield" priority="3">
 Private field 'players' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="12" endline="12" begincolumn="9" endcolumn="23" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="GameEngine" method="getPlayers" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
+<violation beginline="14" endline="14" begincolumn="9" endcolumn="23" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="GameEngine" method="getPlayers" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
 Returning 'players' may expose an internal array.
 </violation>
-<violation beginline="16" endline="16" begincolumn="9" endcolumn="32" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="GameEngine" method="getManufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
+<violation beginline="18" endline="18" begincolumn="9" endcolumn="32" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="GameEngine" method="getManufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
 Returning 'manufactureDisks' may expose an internal array.
+</violation>
+<violation beginline="31" endline="31" begincolumn="31" endcolumn="39" rule="UnusedLocalVariable" ruleset="Best Practices" package="azul" class="GameEngine" method="init" variable="setupData" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'setupData'.
+</violation>
+</file>
+<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/InputParser.java">
+<violation beginline="4" endline="81" begincolumn="26" endcolumn="1" rule="UseUtilityClass" ruleset="Design" package="azul" class="InputParser" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#useutilityclass" priority="3">
+All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+</violation>
+<violation beginline="13" endline="13" begincolumn="21" endcolumn="42" rule="LawOfDemeter" ruleset="Design" package="azul" class="InputParser" method="main" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Potential violation of Law of Demeter (object not created locally)
+</violation>
+<violation beginline="18" endline="18" begincolumn="26" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="19" endline="19" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="gameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="20" endline="20" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="playerNumber" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="22" endline="22" begincolumn="26" endcolumn="45" rule="ArrayIsStoredDirectly" ruleset="Best Practices" package="azul" class="InputParser$SetupData" method="SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#arrayisstoreddirectly" priority="3">
+The user-supplied array 'playerNames' is stored directly.
+</violation>
+<violation beginline="28" endline="28" begincolumn="16" endcolumn="51" rule="MutableStaticState" ruleset="Design" package="azul" class="InputParser$SetupData" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#mutablestaticstate" priority="3">
+Do not use non-final non-private static fields
+</violation>
+<violation beginline="43" endline="43" begincolumn="26" endcolumn="26" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The initializer for variable 'gmType' is never used (overwritten on line 46)
+</violation>
+<violation beginline="47" endline="47" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="50" endline="50" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+Avoid using Literals in Conditional Statements
 </violation>
 </file>
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/ManufactureDisk.java">
@@ -106,17 +141,25 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 Private field 'number' could be made final; it is only initialized in the declaration or constructor.
 </violation>
 </file>
-<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/Tileholder.java">
-<violation beginline="8" endline="39" begincolumn="10" endcolumn="1" rule="AbstractClassWithoutAbstractMethod" ruleset="Best Practices" package="azul" class="TileHolder" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#abstractclasswithoutabstractmethod" priority="3">
-This abstract class does not have any abstract methods
+<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/Setup.java">
+<violation beginline="5" endline="5" begincolumn="28" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="Setup" variable="gameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="31" endline="31" begincolumn="17" endcolumn="94" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+<violation beginline="7" endline="7" begincolumn="18" endcolumn="37" rule="ArrayIsStoredDirectly" ruleset="Best Practices" package="azul" class="Setup" method="Setup" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#arrayisstoreddirectly" priority="3">
+The user-supplied array 'playerNames' is stored directly.
+</violation>
+<violation beginline="17" endline="17" begincolumn="9" endcolumn="27" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="Setup" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
+Returning 'playerNames' may expose an internal array.
+</violation>
+</file>
+<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/TileHolder.java">
+<violation beginline="60" endline="60" begincolumn="17" endcolumn="94" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="31" endline="31" begincolumn="17" endcolumn="94" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+<violation beginline="60" endline="60" begincolumn="17" endcolumn="94" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="33" endline="33" begincolumn="13" endcolumn="28" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+<violation beginline="62" endline="62" begincolumn="13" endcolumn="28" rule="LawOfDemeter" ruleset="Design" package="azul" class="TileHolder" method="popTiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 </file>
