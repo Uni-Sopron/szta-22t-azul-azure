@@ -31,4 +31,5 @@ public class Tile {
         return this.color == ((Tile) other).getColor();
     }
 
+
 }

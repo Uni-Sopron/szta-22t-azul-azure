@@ -3,9 +3,7 @@
  */
 package azul;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -14,39 +12,20 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import azul.mocks.ManufactureDiskMock;
 
 
 
 class BagTest {
 
-    Bag bag;
-    ManufactureDisk[] disks;
+    private Bag bag;
+    private ManufactureDisk[] disks;
 
     @BeforeEach
     void init() {
         bag = new Bag();
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {3, 5, 7})
-    void Manufacturedisks_have_four_tiles_after_shuffle(int diskNum) {
-        disks = new ManufactureDisk[diskNum];
-        for (int i = 0; i < diskNum; i++) {
-            disks[i] = new ManufactureDiskMock();
-        }
-
-
-        assertDoesNotThrow(() -> bag.shuffleTo(disks));
-
-        for (var disk : disks) {
-            assertEquals(4, disk.getTiles().size());
-        }
-
-        assertThrows(IllegalStateException.class, () -> bag.shuffleTo(disks));
-    }
 
     @Test
     @Order(1)
@@ -61,6 +40,7 @@ class BagTest {
         var poppedTilesSize = ((List<Tile>) Arrays.asList(disks).stream().map(d -> d.getTiles())
                 .flatMap(Collection::stream).collect(Collectors.toList())).size();
         assertEquals(100, poppedTilesSize);
+
     }
 
     @Test
