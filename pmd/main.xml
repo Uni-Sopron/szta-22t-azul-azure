@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T20:56:50.792"<?xml version="1.0" encoding="UTF-8"?>>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-12T20:56:50.795">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-13T09:56:55.465"<?xml version="1.0" encoding="UTF-8"?>>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-13T09:56:55.471">
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/Bag.java">
 <violation beginline="11" endline="11" begincolumn="31" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="Bag" variable="tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
@@ -127,6 +127,17 @@ The user-supplied array 'playerNames' is stored directly.
 </violation>
 <violation beginline="17" endline="17" begincolumn="9" endcolumn="27" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="Setup" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
 Returning 'playerNames' may expose an internal array.
+</violation>
+</file>
+<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/TileWall.java">
+<violation beginline="6" endline="6" begincolumn="28" endcolumn="33" rule="UnusedPrivateField" ruleset="Best Practices" package="azul" class="TileWall" variable="matrix" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'matrix'.
+</violation>
+<violation beginline="6" endline="6" begincolumn="28" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="TileWall" variable="matrix" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="6" endline="6" begincolumn="19" endcolumn="34" rule="SingularField" ruleset="Design" package="azul" class="TileWall" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'matrix' could be replaced by a local variable.
 </violation>
 </file>
 <configerror rule="LoosePackageCoupling" msg="No packages or classes specified"/>
