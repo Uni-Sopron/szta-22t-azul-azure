@@ -28,7 +28,7 @@ class GameEngine {
 
     public void init() {
         String[] pNamesInit = new String[3];
-        InputParser.SetupData setupData = new InputParser.SetupData(pNamesInit,GameMode.CLASSIC,4);
+        UIInputParser.SetupData setupData = new UIInputParser.SetupData(pNamesInit,GameMode.CLASSIC,4);
     }
 
     public void startGame() {}

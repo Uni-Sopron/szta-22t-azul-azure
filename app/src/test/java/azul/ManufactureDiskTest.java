@@ -34,7 +34,7 @@ class ManufactureDiskTest {
 
         assertDoesNotThrow(() -> bag.shuffleTo(disks));
 
-        for (var disk : disks) {
+        for (ManufactureDisk disk : disks) {
             assertEquals(4, disk.getTiles().size());
         }
 

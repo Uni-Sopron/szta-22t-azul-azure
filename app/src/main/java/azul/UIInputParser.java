@@ -1,9 +1,31 @@
 package azul;
+import java.util.List;
 import java.util.Scanner;
 
-public class InputParser {
+import azul.interfaces.AzulUI;
 
-    public static void main(String[] args) {
+public class UIInputParser implements AzulUI {
+
+    public int getSelectedRow(){
+        try (Scanner sc = new Scanner(System.in)) {
+            int playerNumber = -1;
+            String fromConsole ="";
+            do {
+                System.out.println("Enter row index between 0-5 inclusive, 0 is floor:");
+                try {
+                    fromConsole = sc.next();
+                    Integer.parseInt(fromConsole);
+                    playerNumber =Integer.parseInt(fromConsole);
+                } catch (Exception e) {
+                    System.out.println("Please enter numbers.");
+                    fromConsole = "";
+                }
+            } while( !(playerNumber>=0 && playerNumber<=5) );
+            return (playerNumber-1);
+        }
+    }
+
+    public static void StartIP(String[] args) {
         System.out.println("InputParser work ...");
 
         String[] s;
@@ -77,5 +99,61 @@ public class InputParser {
                 return false;
             }  else return true;
         }
+    }
+    @Override
+    public void drawState() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void drawScoreboard() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public List<String> getPlayerNames() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public GameMode getGameMode() {
+        try (Scanner sc = new Scanner(System.in)) {
+            String fromConsole;
+            GameMode chosenGameMode = null;
+            boolean isOk =false;
+            do {
+                System.out.println("Enter a game mode:");
+                try {
+                    fromConsole = sc.next();
+                    chosenGameMode=GameMode.valueOf(fromConsole);
+                    isOk=true;
+                } catch (Exception e) {
+                    System.out.println("Please a valid game mode.");
+                    isOk=false;
+                }
+            } while(!isOk );
+            return chosenGameMode;
+        }
+    }
+
+    @Override
+    public String getTileHolderId() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Color getColor() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

@@ -12,7 +12,7 @@ public class TileHolder {
 
     protected TileHolder() {
         tiles = new ArrayList<>();
-        var id = holders.stream()
+        long id = holders.stream()
                 .filter(h -> h.getClass().getName().equals(this.getClass().getName())).count() + 1;
 
         identifier = this.getClass().getName() + id;
@@ -43,7 +43,7 @@ public class TileHolder {
      * @return Returns a copy of the inner container with it's Tiles.
      */
     public final List<Tile> getTiles() {
-        var tmp = new ArrayList<Tile>();
+        ArrayList<Tile> tmp = new ArrayList<Tile>();
         tmp.addAll(tiles);
         return tmp;
     }
