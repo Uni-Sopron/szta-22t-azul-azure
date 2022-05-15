@@ -1,4 +1,5 @@
 package azul;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -6,22 +7,24 @@ import azul.interfaces.AzulUI;
 
 public class UIInputParser implements AzulUI {
 
+    private ArrayList<String> playerNames;
+
     public int getSelectedRow(){
         try (Scanner sc = new Scanner(System.in)) {
-            int playerNumber = -1;
+            int rowNumber = -1;
             String fromConsole ="";
             do {
                 System.out.println("Enter row index between 0-5 inclusive, 0 is floor:");
                 try {
                     fromConsole = sc.next();
                     Integer.parseInt(fromConsole);
-                    playerNumber =Integer.parseInt(fromConsole);
+                    rowNumber =Integer.parseInt(fromConsole);
                 } catch (Exception e) {
                     System.out.println("Please enter numbers.");
                     fromConsole = "";
                 }
-            } while( !(playerNumber>=0 && playerNumber<=5) );
-            return (playerNumber-1);
+            } while( !(rowNumber>=0 && rowNumber<=5) );
+            return (rowNumber-1);
         }
     }
 
@@ -120,8 +123,36 @@ public class UIInputParser implements AzulUI {
 
     @Override
     public List<String> getPlayerNames() {
-        // TODO Auto-generated method stub
-        return null;
+        //TODO Máté ezt checkold le, hogy így gondoltad-e
+        int playerNumber = -1;
+        try (Scanner sc = new Scanner(System.in)) {
+            String fromConsole ="";
+            do {
+                System.out.println("Enter the number of players (2-4):");
+                try {
+                    fromConsole = sc.next();
+                    Integer.parseInt(fromConsole);
+                    playerNumber =Integer.parseInt(fromConsole);
+                } catch (Exception e) {
+                    System.out.println("Please enter numbers.");
+                    fromConsole = "";
+                }
+            } while( !(playerNumber>=2 && playerNumber<=4) );
+            ArrayList<String> names = new ArrayList<String>();
+            byte index = 0;
+            do {
+                System.out.println("Enter a name:");
+                try {
+                    fromConsole = sc.next();
+                    names.add(index, fromConsole);
+                    index++;
+                } catch (Exception e) {
+                    System.out.println("Please a valid name.");
+                }
+            } while(index<playerNumber);
+            playerNames=names;
+            return names;
+        }
     }
 
     @Override
@@ -131,6 +162,7 @@ public class UIInputParser implements AzulUI {
             GameMode chosenGameMode = null;
             boolean isOk =false;
             do {
+                System.out.println("Possible game modes yet: CLASSIC, ALTERNATIVE");
                 System.out.println("Enter a game mode:");
                 try {
                     fromConsole = sc.next();
@@ -147,13 +179,59 @@ public class UIInputParser implements AzulUI {
 
     @Override
     public String getTileHolderId() {
-        // TODO Auto-generated method stub
-        return null;
+        try (Scanner sc = new Scanner(System.in)) {
+            String fromConsole="";
+            boolean isOk =false;
+            do {
+                System.out.println("Please enter a valid Tile holder ID");
+                try {
+                    fromConsole = sc.next();
+                    if(fromConsole.equals("Middle1")){
+                        return fromConsole;
+                    }
+                    if(fromConsole.length()==16 && fromConsole.startsWith("ManufactureDisk")){
+                        int num = Integer.parseInt(fromConsole.substring(fromConsole.length()-1));
+                        if(playerNames.size()==2&&num>=1&&num<=5){
+                            isOk=true;
+                        }
+                        if(playerNames.size()==3&&num>=1&&num<=7){
+                            isOk=true;
+                        }
+                        if(playerNames.size()==4&&num>=1&&num<=9){
+                            isOk=true;
+                        }
+                    }else{
+                        throw new Exception();
+                    }
+                } catch (Exception e) {
+                    isOk=false;
+                }
+            } while(!isOk );
+            return fromConsole;
+        }
     }
 
     @Override
     public Color getColor() {
-        // TODO Auto-generated method stub
-        return null;
+        try (Scanner sc = new Scanner(System.in)) {
+            String fromConsole;
+            Color chosenColor = null;
+            boolean isOk =false;
+            do {
+                System.out.println("Possible colors yet: WHITE, RED, GREEN, BLUE, YELLOW");
+                System.out.println("Enter a color:");
+                try {
+                    fromConsole = sc.next();
+                    if(!Color.FIRSTPLAYER.name().equals(fromConsole)){
+                        chosenColor=Color.valueOf(fromConsole);
+                        isOk=true;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Please a valid color.");
+                    isOk=false;
+                }
+            } while(!isOk );
+            return chosenColor;
+        }
     }
 }
