@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-13T10:04:48.685"<?xml version="1.0" encoding="UTF-8"?>>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-13T10:04:48.692">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-15T10:30:35.325"<?xml version="1.0" encoding="UTF-8"?>>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.44.0" timestamp="2022-05-15T10:30:35.330">
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/Bag.java">
 <violation beginline="11" endline="11" begincolumn="31" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="Bag" variable="tiles" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
@@ -40,37 +40,8 @@ Returning 'players' may expose an internal array.
 <violation beginline="18" endline="18" begincolumn="9" endcolumn="32" rule="MethodReturnsInternalArray" ruleset="Best Practices" package="azul" class="GameEngine" method="getManufactureDisks" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#methodreturnsinternalarray" priority="3">
 Returning 'manufactureDisks' may expose an internal array.
 </violation>
-<violation beginline="31" endline="31" begincolumn="31" endcolumn="39" rule="UnusedLocalVariable" ruleset="Best Practices" package="azul" class="GameEngine" method="init" variable="setupData" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+<violation beginline="31" endline="31" begincolumn="33" endcolumn="41" rule="UnusedLocalVariable" ruleset="Best Practices" package="azul" class="GameEngine" method="init" variable="setupData" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
 Avoid unused local variables such as 'setupData'.
-</violation>
-</file>
-<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/InputParser.java">
-<violation beginline="4" endline="81" begincolumn="26" endcolumn="1" rule="UseUtilityClass" ruleset="Design" package="azul" class="InputParser" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#useutilityclass" priority="3">
-All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
-</violation>
-<violation beginline="18" endline="18" begincolumn="26" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
-Found non-transient, non-static member. Please mark as transient or provide accessors.
-</violation>
-<violation beginline="19" endline="19" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="gameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
-Found non-transient, non-static member. Please mark as transient or provide accessors.
-</violation>
-<violation beginline="20" endline="20" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="InputParser$SetupData" variable="playerNumber" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
-Found non-transient, non-static member. Please mark as transient or provide accessors.
-</violation>
-<violation beginline="22" endline="22" begincolumn="26" endcolumn="45" rule="ArrayIsStoredDirectly" ruleset="Best Practices" package="azul" class="InputParser$SetupData" method="SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#arrayisstoreddirectly" priority="3">
-The user-supplied array 'playerNames' is stored directly.
-</violation>
-<violation beginline="28" endline="28" begincolumn="16" endcolumn="51" rule="MutableStaticState" ruleset="Design" package="azul" class="InputParser$SetupData" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#mutablestaticstate" priority="3">
-Do not use non-final non-private static fields
-</violation>
-<violation beginline="43" endline="43" begincolumn="26" endcolumn="26" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
-The initializer for variable 'gmType' is never used (overwritten on line 46)
-</violation>
-<violation beginline="47" endline="47" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
-Avoid using Literals in Conditional Statements
-</violation>
-<violation beginline="50" endline="50" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="InputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
-Avoid using Literals in Conditional Statements
 </violation>
 </file>
 <file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/ManufactureDisk.java">
@@ -138,6 +109,89 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 </violation>
 <violation beginline="6" endline="6" begincolumn="19" endcolumn="34" rule="SingularField" ruleset="Design" package="azul" class="TileWall" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#singularfield" priority="3">
 Perhaps 'matrix' could be replaced by a local variable.
+</violation>
+</file>
+<file name="/home/runner/work/szta-22t-azul-azure/szta-22t-azul-azure/app/src/main/java/azul/UIInputParser.java">
+<violation beginline="10" endline="10" begincolumn="13" endcolumn="29" rule="LooseCoupling" ruleset="Best Practices" package="azul" class="UIInputParser" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="10" endline="10" begincolumn="31" endcolumn="41" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="UIInputParser" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="12" endline="29" begincolumn="12" endcolumn="5" rule="MissingOverride" ruleset="Best Practices" package="azul" class="UIInputParser" method="getSelectedRow" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#missingoverride" priority="3">
+The method 'getSelectedRow()' is missing an @Override annotation.
+</violation>
+<violation beginline="15" endline="15" begincolumn="33" endcolumn="34" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser" method="getSelectedRow" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The initializer for variable 'fromConsole' is never used (overwritten on lines 19 and 24)
+</violation>
+<violation beginline="22" endline="22" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getSelectedRow" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="24" endline="24" begincolumn="35" endcolumn="36" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser" method="getSelectedRow" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The value assigned to variable 'fromConsole' is never used (overwritten on lines 19 and 24)
+</violation>
+<violation beginline="43" endline="43" begincolumn="26" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="UIInputParser$SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="44" endline="44" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="UIInputParser$SetupData" variable="gameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="45" endline="45" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="azul" class="UIInputParser$SetupData" variable="playerNumber" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="47" endline="47" begincolumn="26" endcolumn="45" rule="ArrayIsStoredDirectly" ruleset="Best Practices" package="azul" class="UIInputParser$SetupData" method="SetupData" variable="playerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#arrayisstoreddirectly" priority="3">
+The user-supplied array 'playerNames' is stored directly.
+</violation>
+<violation beginline="53" endline="53" begincolumn="16" endcolumn="51" rule="MutableStaticState" ruleset="Design" package="azul" class="UIInputParser$SetupData" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#mutablestaticstate" priority="3">
+Do not use non-final non-private static fields
+</violation>
+<violation beginline="68" endline="68" begincolumn="26" endcolumn="26" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The initializer for variable 'gmType' is never used (overwritten on line 71)
+</violation>
+<violation beginline="72" endline="72" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="UIInputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="75" endline="75" begincolumn="30" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="azul" class="UIInputParser$SetupData" method="parseSetup" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="129" endline="129" begincolumn="33" endcolumn="34" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The initializer for variable 'fromConsole' is never used (overwritten on lines 133 and 138)
+</violation>
+<violation beginline="136" endline="136" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="138" endline="138" begincolumn="35" endcolumn="36" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The value assigned to variable 'fromConsole' is never used (overwritten on lines 133, 138 and 146)
+</violation>
+<violation beginline="149" endline="149" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getPlayerNames" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="163" endline="163" begincolumn="27" endcolumn="31" rule="UnusedAssignment" ruleset="Best Practices" package="azul" class="UIInputParser" method="getGameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#unusedassignment" priority="3">
+The initializer for variable 'isOk' is never used (overwritten on lines 170 and 173)
+</violation>
+<violation beginline="171" endline="171" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getGameMode" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="181" endline="212" begincolumn="12" endcolumn="5" rule="CognitiveComplexity" ruleset="Design" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#cognitivecomplexity" priority="3">
+The method 'getTileHolderId()' has a cognitive complexity of 21, current threshold is 15
+</violation>
+<violation beginline="181" endline="212" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Design" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'getTileHolderId()' has a cyclomatic complexity of 16.
+</violation>
+<violation beginline="189" endline="189" begincolumn="24" endcolumn="52" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="204" endline="204" begincolumn="35" endcolumn="43" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="206" endline="206" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="206" endline="206" begincolumn="26" endcolumn="34" rule="ExceptionAsFlowControl" ruleset="Design" package="azul" class="UIInputParser" method="getTileHolderId" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#exceptionasflowcontrol" priority="3">
+Avoid using exceptions as flow control.
+</violation>
+<violation beginline="229" endline="229" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Design" package="azul" class="UIInputParser" method="getColor" externalInfoUrl="https://pmd.github.io/pmd-6.44.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
 </file>
 <configerror rule="LoosePackageCoupling" msg="No packages or classes specified"/>

@@ -5,7 +5,7 @@ public class Setup {
     private final GameMode gameMode;
 
 <span class="nc" id="L7">    public Setup(String[] playerNames, String gameMode) {</span>
-<span class="nc bnc" id="L8" title="All 2 branches missed.">        for (var playerName: playerNames) {</span>
+<span class="nc bnc" id="L8" title="All 2 branches missed.">        for (String playerName: playerNames) {</span>
 <span class="nc bnc" id="L9" title="All 4 branches missed.">            if(playerName == null || playerName.isEmpty()) {</span>
 <span class="nc" id="L10">                throw new IllegalArgumentException(&quot;Player name is null or empty!&quot;);</span>
             }

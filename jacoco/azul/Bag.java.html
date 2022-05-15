@@ -40,7 +40,7 @@ class Bag {
      * @param disks
      */
     public void shuffleTo(ManufactureDisk[] disks) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (var disk : disks) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (ManufactureDisk disk : disks) {</span>
 <span class="fc" id="L44">            Optional&lt;Tile[]&gt; poppedTiles = popTiles();</span>
 <span class="pc bpc" id="L45" title="1 of 2 branches missed.">            if (!poppedTiles.isPresent())</span>
 <span class="nc" id="L46">                return;</span>

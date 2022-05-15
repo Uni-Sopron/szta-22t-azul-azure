@@ -12,7 +12,7 @@ public class TileHolder {
 
 <span class="fc" id="L13">    protected TileHolder() {</span>
 <span class="fc" id="L14">        tiles = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L15">        var id = holders.stream()</span>
+<span class="fc" id="L15">        long id = holders.stream()</span>
 <span class="fc" id="L16">                .filter(h -&gt; h.getClass().getName().equals(this.getClass().getName())).count() + 1;</span>
 
 <span class="fc" id="L18">        identifier = this.getClass().getName() + id;</span>
@@ -43,7 +43,7 @@ public class TileHolder {
      * @return Returns a copy of the inner container with it's Tiles.
      */
     public final List&lt;Tile&gt; getTiles() {
-<span class="fc" id="L46">        var tmp = new ArrayList&lt;Tile&gt;();</span>
+<span class="fc" id="L46">        ArrayList&lt;Tile&gt; tmp = new ArrayList&lt;Tile&gt;();</span>
 <span class="fc" id="L47">        tmp.addAll(tiles);</span>
 <span class="fc" id="L48">        return tmp;</span>
     }
