@@ -30,7 +30,7 @@ public interface InputHandler {
 
     /**
      * Minden TileHolder rendelkezik ID-val a kijelölés miatt. Ezek számozása: Middle1,
-     * 
+     * TODO Máté nem inkább 2,3,4 játékosnál?
      * Egy játékosnál: ManufactureDisk1 ... ManufactureDisk5
      * 
      * Két játékosnál: ManufactureDisk1 ... ManufactureDisk7

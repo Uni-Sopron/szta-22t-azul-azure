@@ -40,7 +40,7 @@ class Bag {
      * @param disks
      */
     public void shuffleTo(ManufactureDisk[] disks) {
-        for (var disk : disks) {
+        for (ManufactureDisk disk : disks) {
             Optional<Tile[]> poppedTiles = popTiles();
             if (!poppedTiles.isPresent())
                 return;

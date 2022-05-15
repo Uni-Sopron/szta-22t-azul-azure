@@ -5,7 +5,7 @@ public class Setup {
     private final GameMode gameMode;
 
     public Setup(String[] playerNames, String gameMode) {
-        for (var playerName: playerNames) {
+        for (String playerName: playerNames) {
             if(playerName == null || playerName.isEmpty()) {
                 throw new IllegalArgumentException("Player name is null or empty!");
             }
