@@ -1,238 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UIInputParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">azul</a> &gt; <span class="el_source">UIInputParser.java</span></div><h1>UIInputParser.java</h1><pre class="source lang-java linenums">package azul;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import azul.interfaces.AzulUI;
 
-<span class="nc" id="L8">public class UIInputParser implements AzulUI {</span>
+public class UIInputParser implements AzulUI {
 
     private ArrayList&lt;String&gt; playerNames;
+    private Scanner sc;
 
-    public int getSelectedRow(){
-<span class="nc" id="L13">        try (Scanner sc = new Scanner(System.in)) {</span>
-<span class="nc" id="L14">            int rowNumber = -1;</span>
-<span class="nc" id="L15">            String fromConsole =&quot;&quot;;</span>
-            do {
-<span class="nc" id="L17">                System.out.println(&quot;Enter row index between 0-5 inclusive, 0 is floor:&quot;);</span>
-                try {
-<span class="nc" id="L19">                    fromConsole = sc.next();</span>
-<span class="nc" id="L20">                    Integer.parseInt(fromConsole);</span>
-<span class="nc" id="L21">                    rowNumber =Integer.parseInt(fromConsole);</span>
-<span class="nc" id="L22">                } catch (Exception e) {</span>
-<span class="nc" id="L23">                    System.out.println(&quot;Please enter numbers.&quot;);</span>
-<span class="nc" id="L24">                    fromConsole = &quot;&quot;;</span>
-<span class="nc" id="L25">                }</span>
-<span class="nc bnc" id="L26" title="All 4 branches missed.">            } while( !(rowNumber&gt;=0 &amp;&amp; rowNumber&lt;=5) );</span>
-<span class="nc" id="L27">            return (rowNumber-1);</span>
-        }
+<span class="nc" id="L15">    public UIInputParser(InputStream in) {</span>
+<span class="nc" id="L16">        this.sc = new Scanner(in);</span>
+<span class="nc" id="L17">    }</span>
+
+    public int getSelectedRow() {
+<span class="nc" id="L20">        int rowNumber = -1;</span>
+<span class="nc" id="L21">        String fromConsole = &quot;&quot;;</span>
+        do {
+<span class="nc" id="L23">            System.out.println(&quot;Enter row index between 0-5 inclusive, 0 is floor:&quot;);</span>
+            try {
+<span class="nc" id="L25">                fromConsole = sc.next();</span>
+<span class="nc" id="L26">                Integer.parseInt(fromConsole);</span>
+<span class="nc" id="L27">                rowNumber = Integer.parseInt(fromConsole);</span>
+<span class="nc" id="L28">            } catch (Exception e) {</span>
+<span class="nc" id="L29">                System.out.println(&quot;Please enter numbers.&quot;);</span>
+<span class="nc" id="L30">                fromConsole = &quot;&quot;;</span>
+<span class="nc" id="L31">            }</span>
+<span class="nc bnc" id="L32" title="All 4 branches missed.">        } while (!(rowNumber &gt;= 0 &amp;&amp; rowNumber &lt;= 5));</span>
+<span class="nc" id="L33">        return (rowNumber - 1);</span>
     }
 
     public static void StartIP(String[] args) {
-<span class="nc" id="L32">        System.out.println(&quot;InputParser work ...&quot;);</span>
+<span class="nc" id="L37">        System.out.println(&quot;InputParser work ...&quot;);</span>
 
         String[] s;
-<span class="nc" id="L35">        s = new String[]{null, null, null, null};</span>
+<span class="nc" id="L40">        s = new String[] { null, null, null, null };</span>
 
-<span class="nc" id="L37">        SetupData setupData = new SetupData(s,GameMode.CLASSIC,4);</span>
-<span class="nc" id="L38">        setupData = setupData.parseSetup();</span>
-<span class="nc" id="L39">        System.out.println(setupData);</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L42">        SetupData setupData = new SetupData(s, GameMode.CLASSIC, 4);</span>
+<span class="nc" id="L43">        setupData = setupData.parseSetup();</span>
+<span class="nc" id="L44">        System.out.println(setupData);</span>
+<span class="nc" id="L45">    }</span>
+
     static class SetupData {
 
         private String[] playerNames;
         private GameMode gameMode;
         private Integer playerNumber;
 
-<span class="nc" id="L47">        public SetupData(String[] playerNames, GameMode gameMode, Integer playerNumber) {</span>
-<span class="nc" id="L48">            this.playerNames = playerNames;</span>
-<span class="nc" id="L49">            this.gameMode = gameMode;</span>
-<span class="nc" id="L50">            this.playerNumber = playerNumber;</span>
-<span class="nc" id="L51">        }</span>
+<span class="nc" id="L53">        public SetupData(String[] playerNames, GameMode gameMode, Integer playerNumber) {</span>
+<span class="nc" id="L54">            this.playerNames = playerNames;</span>
+<span class="nc" id="L55">            this.gameMode = gameMode;</span>
+<span class="nc" id="L56">            this.playerNumber = playerNumber;</span>
+<span class="nc" id="L57">        }</span>
 
-<span class="nc" id="L53">        static Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L59">        static Scanner sc = new Scanner(System.in);</span>
 
         public SetupData parseSetup() {
             do {
-<span class="nc" id="L57">                System.out.println(&quot;Enter the number of players: &quot;);</span>
-<span class="nc" id="L58">                this.playerNumber = sc.nextInt();</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">            } while( !isValidPlayerNumber(playerNumber) );</span>
+<span class="nc" id="L63">                System.out.println(&quot;Enter the number of players: &quot;);</span>
+<span class="nc" id="L64">                this.playerNumber = sc.nextInt();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            } while (!isValidPlayerNumber(playerNumber));</span>
 
-<span class="nc bnc" id="L61" title="All 2 branches missed.">            for(int i = 0; i&lt;playerNumber; i++) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            for (int i = 0; i &lt; playerNumber; i++) {</span>
                 do {
-<span class="nc" id="L63">                    System.out.println(&quot;Enter the name of player &quot; + (i+1) + &quot;. :&quot;);</span>
-<span class="nc" id="L64">                    playerNames[i] = sc.nextLine();</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">                } while( !isValidName(playerNames[i]));</span>
+<span class="nc" id="L69">                    System.out.println(&quot;Enter the name of player &quot; + (i + 1) + &quot;. :&quot;);</span>
+<span class="nc" id="L70">                    playerNames[i] = sc.nextLine();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">                } while (!isValidName(playerNames[i]));</span>
             }
 
-<span class="nc" id="L68">            int gmType = 0;</span>
+<span class="nc" id="L74">            int gmType = 0;</span>
             do {
-<span class="nc" id="L70">                System.out.println(&quot;Enter the number of gamemode: \n&gt; 1: classic mode\n&gt; 2: alternative mode&quot;);</span>
-<span class="nc" id="L71">                gmType = sc.nextInt();</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">                if(gmType == 1) {</span>
-<span class="nc" id="L73">                    gameMode = GameMode.CLASSIC;</span>
+<span class="nc" id="L76">                System.out.println(&quot;Enter the number of gamemode: \n&gt; 1: classic mode\n&gt; 2: alternative mode&quot;);</span>
+<span class="nc" id="L77">                gmType = sc.nextInt();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">                if (gmType == 1) {</span>
+<span class="nc" id="L79">                    gameMode = GameMode.CLASSIC;</span>
                 }
-<span class="nc bnc" id="L75" title="All 2 branches missed.">                if(gmType == 2) {</span>
-<span class="nc" id="L76">                    gameMode = GameMode.ALTERNATIVE;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">                if (gmType == 2) {</span>
+<span class="nc" id="L82">                    gameMode = GameMode.ALTERNATIVE;</span>
                 }
-<span class="nc bnc" id="L78" title="All 2 branches missed.">            } while( !isValidGameMode(gmType));</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">            } while (!isValidGameMode(gmType));</span>
 
-<span class="nc" id="L80">            return new SetupData(playerNames, gameMode, playerNumber);</span>
+<span class="nc" id="L86">            return new SetupData(playerNames, gameMode, playerNumber);</span>
         }
 
-        private boolean isValidGameMode(int pNumber){
-<span class="nc bnc" id="L84" title="All 4 branches missed.">            if(pNumber == 1 || pNumber == 2) {</span>
-<span class="nc" id="L85">                return true;</span>
-            }  else {
-<span class="nc" id="L87">                System.out.println(&quot;The value must be between 1-2!&quot;);</span>
-<span class="nc" id="L88">                return false;</span>
+        private boolean isValidGameMode(int pNumber) {
+<span class="nc bnc" id="L90" title="All 4 branches missed.">            if (pNumber == 1 || pNumber == 2) {</span>
+<span class="nc" id="L91">                return true;</span>
+            } else {
+<span class="nc" id="L93">                System.out.println(&quot;The value must be between 1-2!&quot;);</span>
+<span class="nc" id="L94">                return false;</span>
             }
         }
 
-        private boolean isValidPlayerNumber(int pNumber){
-<span class="nc bnc" id="L93" title="All 4 branches missed.">            if(pNumber &gt; 4 || pNumber  &lt; 2){</span>
-<span class="nc" id="L94">                System.out.println(&quot;The value must be between 2-4!&quot; );</span>
-<span class="nc" id="L95">                return false;</span>
-<span class="nc" id="L96">            }  else return true;</span>
+        private boolean isValidPlayerNumber(int pNumber) {
+<span class="nc bnc" id="L99" title="All 4 branches missed.">            if (pNumber &gt; 4 || pNumber &lt; 2) {</span>
+<span class="nc" id="L100">                System.out.println(&quot;The value must be between 2-4!&quot;);</span>
+<span class="nc" id="L101">                return false;</span>
+            } else
+<span class="nc" id="L103">                return true;</span>
         }
 
-        private boolean isValidName(String name){
-<span class="nc bnc" id="L100" title="All 4 branches missed.">            if(name == null || name.isEmpty()){</span>
-<span class="nc" id="L101">                System.out.println(&quot;Wrong name!&quot; );</span>
-<span class="nc" id="L102">                return false;</span>
-<span class="nc" id="L103">            }  else return true;</span>
+        private boolean isValidName(String name) {
+<span class="nc bnc" id="L107" title="All 4 branches missed.">            if (name == null || name.isEmpty()) {</span>
+<span class="nc" id="L108">                System.out.println(&quot;Wrong name!&quot;);</span>
+<span class="nc" id="L109">                return false;</span>
+            } else
+<span class="nc" id="L111">                return true;</span>
         }
     }
+
     @Override
     public void drawState() {
         // TODO Auto-generated method stub
-        
-<span class="nc" id="L110">    }</span>
+
+<span class="nc" id="L119">    }</span>
 
     @Override
     public void drawScoreboard() {
         // TODO Auto-generated method stub
-        
-<span class="nc" id="L116">    }</span>
+
+<span class="nc" id="L125">    }</span>
 
     @Override
     public void clear() {
         // TODO Auto-generated method stub
-        
-<span class="nc" id="L122">    }</span>
+
+<span class="nc" id="L131">    }</span>
 
     @Override
     public List&lt;String&gt; getPlayerNames() {
-        //TODO Máté ezt checkold le, hogy így gondoltad-e
-<span class="nc" id="L127">        int playerNumber = -1;</span>
-<span class="nc" id="L128">        try (Scanner sc = new Scanner(System.in)) {</span>
-<span class="nc" id="L129">            String fromConsole =&quot;&quot;;</span>
-            do {
-<span class="nc" id="L131">                System.out.println(&quot;Enter the number of players (2-4):&quot;);</span>
-                try {
-<span class="nc" id="L133">                    fromConsole = sc.next();</span>
-<span class="nc" id="L134">                    Integer.parseInt(fromConsole);</span>
-<span class="nc" id="L135">                    playerNumber =Integer.parseInt(fromConsole);</span>
-<span class="nc" id="L136">                } catch (Exception e) {</span>
-<span class="nc" id="L137">                    System.out.println(&quot;Please enter numbers.&quot;);</span>
-<span class="nc" id="L138">                    fromConsole = &quot;&quot;;</span>
-<span class="nc" id="L139">                }</span>
-<span class="nc bnc" id="L140" title="All 4 branches missed.">            } while( !(playerNumber&gt;=2 &amp;&amp; playerNumber&lt;=4) );</span>
-<span class="nc" id="L141">            ArrayList&lt;String&gt; names = new ArrayList&lt;String&gt;();</span>
-<span class="nc" id="L142">            byte index = 0;</span>
-            do {
-<span class="nc" id="L144">                System.out.println(&quot;Enter a name:&quot;);</span>
-                try {
-<span class="nc" id="L146">                    fromConsole = sc.next();</span>
-<span class="nc" id="L147">                    names.add(index, fromConsole);</span>
-<span class="nc" id="L148">                    index++;</span>
-<span class="nc" id="L149">                } catch (Exception e) {</span>
-<span class="nc" id="L150">                    System.out.println(&quot;Please a valid name.&quot;);</span>
-<span class="nc" id="L151">                }</span>
-<span class="nc bnc" id="L152" title="All 2 branches missed.">            } while(index&lt;playerNumber);</span>
-<span class="nc" id="L153">            playerNames=names;</span>
-<span class="nc" id="L154">            return names;</span>
-        }
+<span class="nc" id="L135">        int playerNumber = -1;</span>
+<span class="nc" id="L136">        String fromConsole = &quot;&quot;;</span>
+        do {
+<span class="nc" id="L138">            System.out.println(&quot;Enter the number of players (2-4):&quot;);</span>
+            try {
+<span class="nc" id="L140">                fromConsole = sc.next();</span>
+<span class="nc" id="L141">                Integer.parseInt(fromConsole);</span>
+<span class="nc" id="L142">                playerNumber = Integer.parseInt(fromConsole);</span>
+<span class="nc" id="L143">            } catch (Exception e) {</span>
+<span class="nc" id="L144">                System.out.println(&quot;Please enter numbers.&quot;);</span>
+<span class="nc" id="L145">                fromConsole = &quot;&quot;;</span>
+<span class="nc" id="L146">            }</span>
+<span class="nc bnc" id="L147" title="All 4 branches missed.">        } while (!(playerNumber &gt;= 2 &amp;&amp; playerNumber &lt;= 4));</span>
+<span class="nc" id="L148">        ArrayList&lt;String&gt; names = new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L149">        byte index = 0;</span>
+        do {
+<span class="nc" id="L151">            System.out.println(&quot;Enter a name:&quot;);</span>
+            try {
+<span class="nc" id="L153">                fromConsole = sc.next();</span>
+<span class="nc" id="L154">                names.add(index, fromConsole);</span>
+<span class="nc" id="L155">                index++;</span>
+<span class="nc" id="L156">            } catch (Exception e) {</span>
+<span class="nc" id="L157">                System.out.println(&quot;Please a valid name.&quot;);</span>
+<span class="nc" id="L158">            }</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        } while (index &lt; playerNumber);</span>
+<span class="nc" id="L160">        playerNames = names;</span>
+<span class="nc" id="L161">        return names;</span>
     }
 
     @Override
     public GameMode getGameMode() {
-<span class="nc" id="L160">        try (Scanner sc = new Scanner(System.in)) {</span>
-            String fromConsole;
-<span class="nc" id="L162">            GameMode chosenGameMode = null;</span>
-<span class="nc" id="L163">            boolean isOk =false;</span>
-            do {
-<span class="nc" id="L165">                System.out.println(&quot;Possible game modes yet: CLASSIC, ALTERNATIVE&quot;);</span>
-<span class="nc" id="L166">                System.out.println(&quot;Enter a game mode:&quot;);</span>
-                try {
-<span class="nc" id="L168">                    fromConsole = sc.next();</span>
-<span class="nc" id="L169">                    chosenGameMode=GameMode.valueOf(fromConsole);</span>
-<span class="nc" id="L170">                    isOk=true;</span>
-<span class="nc" id="L171">                } catch (Exception e) {</span>
-<span class="nc" id="L172">                    System.out.println(&quot;Please a valid game mode.&quot;);</span>
-<span class="nc" id="L173">                    isOk=false;</span>
-<span class="nc" id="L174">                }</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">            } while(!isOk );</span>
-<span class="nc" id="L176">            return chosenGameMode;</span>
-        }
+        String fromConsole;
+<span class="nc" id="L167">        GameMode chosenGameMode = null;</span>
+<span class="nc" id="L168">        boolean isOk = false;</span>
+        do {
+<span class="nc" id="L170">            System.out.println(&quot;Possible game modes yet: CLASSIC, ALTERNATIVE&quot;);</span>
+<span class="nc" id="L171">            System.out.println(&quot;Enter a game mode:&quot;);</span>
+            try {
+<span class="nc" id="L173">                fromConsole = sc.next();</span>
+<span class="nc" id="L174">                chosenGameMode = GameMode.valueOf(fromConsole);</span>
+<span class="nc" id="L175">                isOk = true;</span>
+<span class="nc" id="L176">            } catch (Exception e) {</span>
+<span class="nc" id="L177">                System.out.println(&quot;Please a valid game mode.&quot;);</span>
+<span class="nc" id="L178">                isOk = false;</span>
+<span class="nc" id="L179">            }</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">        } while (!isOk);</span>
+<span class="nc" id="L181">        return chosenGameMode;</span>
     }
 
     @Override
     public String getTileHolderId() {
-<span class="nc" id="L182">        try (Scanner sc = new Scanner(System.in)) {</span>
-<span class="nc" id="L183">            String fromConsole=&quot;&quot;;</span>
-<span class="nc" id="L184">            boolean isOk =false;</span>
-            do {
-<span class="nc" id="L186">                System.out.println(&quot;Please enter a valid Tile holder ID&quot;);</span>
-                try {
-<span class="nc" id="L188">                    fromConsole = sc.next();</span>
-<span class="nc bnc" id="L189" title="All 2 branches missed.">                    if(fromConsole.equals(&quot;Middle1&quot;)){</span>
-<span class="nc" id="L190">                        return fromConsole;</span>
+<span class="nc" id="L186">        String fromConsole = &quot;&quot;;</span>
+<span class="nc" id="L187">        boolean isOk = false;</span>
+        do {
+<span class="nc" id="L189">            System.out.println(&quot;Please enter a valid Tile holder ID&quot;);</span>
+            try {
+<span class="nc" id="L191">                fromConsole = sc.next();</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">                if (fromConsole.equals(&quot;Middle1&quot;)) {</span>
+<span class="nc" id="L193">                    return fromConsole;</span>
+                }
+<span class="nc bnc" id="L195" title="All 4 branches missed.">                if (fromConsole.length() == 16 &amp;&amp; fromConsole.startsWith(&quot;ManufactureDisk&quot;)) {</span>
+<span class="nc" id="L196">                    int num = Integer.parseInt(fromConsole.substring(fromConsole.length() - 1));</span>
+<span class="nc bnc" id="L197" title="All 6 branches missed.">                    if (playerNames.size() == 2 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 5) {</span>
+<span class="nc" id="L198">                        isOk = true;</span>
                     }
-<span class="nc bnc" id="L192" title="All 4 branches missed.">                    if(fromConsole.length()==16 &amp;&amp; fromConsole.startsWith(&quot;ManufactureDisk&quot;)){</span>
-<span class="nc" id="L193">                        int num = Integer.parseInt(fromConsole.substring(fromConsole.length()-1));</span>
-<span class="nc bnc" id="L194" title="All 6 branches missed.">                        if(playerNames.size()==2&amp;&amp;num&gt;=1&amp;&amp;num&lt;=5){</span>
-<span class="nc" id="L195">                            isOk=true;</span>
-                        }
-<span class="nc bnc" id="L197" title="All 6 branches missed.">                        if(playerNames.size()==3&amp;&amp;num&gt;=1&amp;&amp;num&lt;=7){</span>
-<span class="nc" id="L198">                            isOk=true;</span>
-                        }
-<span class="nc bnc" id="L200" title="All 6 branches missed.">                        if(playerNames.size()==4&amp;&amp;num&gt;=1&amp;&amp;num&lt;=9){</span>
-<span class="nc" id="L201">                            isOk=true;</span>
-                        }
-<span class="nc" id="L203">                    }else{</span>
-<span class="nc" id="L204">                        throw new Exception();</span>
+<span class="nc bnc" id="L200" title="All 6 branches missed.">                    if (playerNames.size() == 3 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 7) {</span>
+<span class="nc" id="L201">                        isOk = true;</span>
                     }
-<span class="nc" id="L206">                } catch (Exception e) {</span>
-<span class="nc" id="L207">                    isOk=false;</span>
-<span class="nc" id="L208">                }</span>
-<span class="nc bnc" id="L209" title="All 2 branches missed.">            } while(!isOk );</span>
-<span class="nc" id="L210">            return fromConsole;</span>
-<span class="nc" id="L211">        }</span>
+<span class="nc bnc" id="L203" title="All 6 branches missed.">                    if (playerNames.size() == 4 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 9) {</span>
+<span class="nc" id="L204">                        isOk = true;</span>
+                    }
+<span class="nc" id="L206">                } else {</span>
+<span class="nc" id="L207">                    throw new Exception();</span>
+                }
+<span class="nc" id="L209">            } catch (Exception e) {</span>
+<span class="nc" id="L210">                isOk = false;</span>
+<span class="nc" id="L211">            }</span>
+<span class="nc bnc" id="L212" title="All 2 branches missed.">        } while (!isOk);</span>
+<span class="nc" id="L213">        return fromConsole;</span>
     }
 
     @Override
     public Color getColor() {
-<span class="nc" id="L216">        try (Scanner sc = new Scanner(System.in)) {</span>
-            String fromConsole;
-<span class="nc" id="L218">            Color chosenColor = null;</span>
-<span class="nc" id="L219">            boolean isOk =false;</span>
-            do {
-<span class="nc" id="L221">                System.out.println(&quot;Possible colors yet: WHITE, RED, GREEN, BLUE, YELLOW&quot;);</span>
-<span class="nc" id="L222">                System.out.println(&quot;Enter a color:&quot;);</span>
-                try {
-<span class="nc" id="L224">                    fromConsole = sc.next();</span>
-<span class="nc bnc" id="L225" title="All 2 branches missed.">                    if(!Color.FIRSTPLAYER.name().equals(fromConsole)){</span>
-<span class="nc" id="L226">                        chosenColor=Color.valueOf(fromConsole);</span>
-<span class="nc" id="L227">                        isOk=true;</span>
-                    }
-<span class="nc" id="L229">                } catch (Exception e) {</span>
-<span class="nc" id="L230">                    System.out.println(&quot;Please a valid color.&quot;);</span>
-<span class="nc" id="L231">                    isOk=false;</span>
-<span class="nc" id="L232">                }</span>
-<span class="nc bnc" id="L233" title="All 2 branches missed.">            } while(!isOk );</span>
-<span class="nc" id="L234">            return chosenColor;</span>
-        }
+        String fromConsole;
+<span class="nc" id="L219">        Color chosenColor = null;</span>
+<span class="nc" id="L220">        boolean isOk = false;</span>
+        do {
+<span class="nc" id="L222">            System.out.println(&quot;Possible colors yet: WHITE, RED, GREEN, BLUE, YELLOW&quot;);</span>
+<span class="nc" id="L223">            System.out.println(&quot;Enter a color:&quot;);</span>
+            try {
+<span class="nc" id="L225">                fromConsole = sc.next();</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">                if (!Color.FIRSTPLAYER.name().equals(fromConsole)) {</span>
+<span class="nc" id="L227">                    chosenColor = Color.valueOf(fromConsole);</span>
+<span class="nc" id="L228">                    isOk = true;</span>
+                }
+<span class="nc" id="L230">            } catch (Exception e) {</span>
+<span class="nc" id="L231">                System.out.println(&quot;Please a valid color.&quot;);</span>
+<span class="nc" id="L232">                isOk = false;</span>
+<span class="nc" id="L233">            }</span>
+<span class="nc bnc" id="L234" title="All 2 branches missed.">        } while (!isOk);</span>
+<span class="nc" id="L235">        return chosenColor;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
