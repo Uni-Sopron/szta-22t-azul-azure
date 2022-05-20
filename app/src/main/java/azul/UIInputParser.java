@@ -11,9 +11,11 @@ public class UIInputParser implements AzulUI {
 
     private ArrayList<String> playerNames;
     private Scanner sc;
+    final private boolean testMode;
 
     public UIInputParser(InputStream in) {
         this.sc = new Scanner(in);
+        testMode = sc.hasNext();
     }
 
     public int getSelectedRow() {
@@ -230,6 +232,9 @@ public class UIInputParser implements AzulUI {
             } catch (Exception e) {
                 System.out.println("Please a valid color.");
                 isOk = false;
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (!isOk);
         return chosenColor;
