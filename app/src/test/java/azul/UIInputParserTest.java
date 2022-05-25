@@ -38,4 +38,12 @@ class UIInputParserTest {
         var parser = new UIInputParser(in);
         assertThrows(IllegalArgumentException.class, () -> parser.getColor());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"asdasd"})
+    void getGameModeTest_sillythings_incorrect(String invalidInput) {
+        var in = new ByteArrayInputStream(invalidInput.getBytes());
+        var parser = new UIInputParser(in);
+        assertThrows(IllegalArgumentException.class, () -> parser.getGameMode());
+    }
 }

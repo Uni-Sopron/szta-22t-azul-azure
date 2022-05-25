@@ -178,6 +178,9 @@ public class UIInputParser implements AzulUI {
             } catch (Exception e) {
                 System.out.println("Please a valid game mode.");
                 isOk = false;
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (!isOk);
         return chosenGameMode;
