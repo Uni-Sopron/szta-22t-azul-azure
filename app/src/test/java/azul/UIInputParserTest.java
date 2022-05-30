@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
+import java.nio.ByteBuffer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,5 +46,29 @@ class UIInputParserTest {
         var in = new ByteArrayInputStream(invalidInput.getBytes());
         var parser = new UIInputParser(in);
         assertThrows(IllegalArgumentException.class, () -> parser.getGameMode());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"6"})
+    void getSelectedRow_sillythings_incorrect(String invalidInput) {
+        var in = new ByteArrayInputStream(invalidInput.getBytes());
+        var parser = new UIInputParser(in);
+        assertThrows(IllegalArgumentException.class, () -> parser.getSelectedRow());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = 3)
+    void getTileHolderId_sillythings_incorrect(int invalidInput) {
+        var in = new ByteArrayInputStream(ByteBuffer.allocate(4).putInt(invalidInput).array());
+        var parser = new UIInputParser(in);
+        assertThrows(IllegalArgumentException.class, () -> parser.getTileHolderId());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {2, 3, 4})
+    void getPlayerNames_sillythings_incorrect(int invalidInput) {
+        var in = new ByteArrayInputStream(ByteBuffer.allocate(4).putInt(invalidInput).array());
+        var parser = new UIInputParser(in);
+        assertThrows(IllegalArgumentException.class, () -> parser.getPlayerNames());
     }
 }

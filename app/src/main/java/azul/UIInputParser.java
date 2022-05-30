@@ -30,6 +30,9 @@ public class UIInputParser implements AzulUI {
             } catch (Exception e) {
                 System.out.println("Please enter numbers.");
                 fromConsole = "";
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (!(rowNumber >= 0 && rowNumber <= 5));
         return (rowNumber - 1);
@@ -145,6 +148,9 @@ public class UIInputParser implements AzulUI {
             } catch (Exception e) {
                 System.out.println("Please enter numbers.");
                 fromConsole = "";
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (!(playerNumber >= 2 && playerNumber <= 4));
         ArrayList<String> names = new ArrayList<String>();
@@ -157,6 +163,9 @@ public class UIInputParser implements AzulUI {
                 index++;
             } catch (Exception e) {
                 System.out.println("Please a valid name.");
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (index < playerNumber);
         playerNames = names;
@@ -213,6 +222,9 @@ public class UIInputParser implements AzulUI {
                 }
             } catch (Exception e) {
                 isOk = false;
+                if(testMode) {
+                    throw new IllegalArgumentException();
+                }
             }
         } while (!isOk);
         return fromConsole;
