@@ -166,78 +166,81 @@ public class UIInputParser implements AzulUI {
     @Override
     public GameMode getGameMode() {
         String fromConsole;
-<span class="nc" id="L169">        GameMode chosenGameMode = null;</span>
-<span class="nc" id="L170">        boolean isOk = false;</span>
+<span class="fc" id="L169">        GameMode chosenGameMode = null;</span>
+<span class="fc" id="L170">        boolean isOk = false;</span>
         do {
-<span class="nc" id="L172">            System.out.println(&quot;Possible game modes yet: CLASSIC, ALTERNATIVE&quot;);</span>
-<span class="nc" id="L173">            System.out.println(&quot;Enter a game mode:&quot;);</span>
+<span class="fc" id="L172">            System.out.println(&quot;Possible game modes yet: CLASSIC, ALTERNATIVE&quot;);</span>
+<span class="fc" id="L173">            System.out.println(&quot;Enter a game mode:&quot;);</span>
             try {
-<span class="nc" id="L175">                fromConsole = sc.next();</span>
+<span class="fc" id="L175">                fromConsole = sc.next();</span>
 <span class="nc" id="L176">                chosenGameMode = GameMode.valueOf(fromConsole);</span>
 <span class="nc" id="L177">                isOk = true;</span>
-<span class="nc" id="L178">            } catch (Exception e) {</span>
-<span class="nc" id="L179">                System.out.println(&quot;Please a valid game mode.&quot;);</span>
-<span class="nc" id="L180">                isOk = false;</span>
-<span class="nc" id="L181">            }</span>
-<span class="nc bnc" id="L182" title="All 2 branches missed.">        } while (!isOk);</span>
-<span class="nc" id="L183">        return chosenGameMode;</span>
+<span class="fc" id="L178">            } catch (Exception e) {</span>
+<span class="fc" id="L179">                System.out.println(&quot;Please a valid game mode.&quot;);</span>
+<span class="fc" id="L180">                isOk = false;</span>
+<span class="pc bpc" id="L181" title="1 of 2 branches missed.">                if(testMode) {</span>
+<span class="fc" id="L182">                    throw new IllegalArgumentException();</span>
+                }
+<span class="nc" id="L184">            }</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">        } while (!isOk);</span>
+<span class="nc" id="L186">        return chosenGameMode;</span>
     }
 
     @Override
     public String getTileHolderId() {
-<span class="nc" id="L188">        String fromConsole = &quot;&quot;;</span>
-<span class="nc" id="L189">        boolean isOk = false;</span>
+<span class="nc" id="L191">        String fromConsole = &quot;&quot;;</span>
+<span class="nc" id="L192">        boolean isOk = false;</span>
         do {
-<span class="nc" id="L191">            System.out.println(&quot;Please enter a valid Tile holder ID&quot;);</span>
+<span class="nc" id="L194">            System.out.println(&quot;Please enter a valid Tile holder ID&quot;);</span>
             try {
-<span class="nc" id="L193">                fromConsole = sc.next();</span>
-<span class="nc bnc" id="L194" title="All 2 branches missed.">                if (fromConsole.equals(&quot;Middle1&quot;)) {</span>
-<span class="nc" id="L195">                    return fromConsole;</span>
+<span class="nc" id="L196">                fromConsole = sc.next();</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">                if (fromConsole.equals(&quot;Middle1&quot;)) {</span>
+<span class="nc" id="L198">                    return fromConsole;</span>
                 }
-<span class="nc bnc" id="L197" title="All 4 branches missed.">                if (fromConsole.length() == 16 &amp;&amp; fromConsole.startsWith(&quot;ManufactureDisk&quot;)) {</span>
-<span class="nc" id="L198">                    int num = Integer.parseInt(fromConsole.substring(fromConsole.length() - 1));</span>
-<span class="nc bnc" id="L199" title="All 6 branches missed.">                    if (playerNames.size() == 2 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 5) {</span>
-<span class="nc" id="L200">                        isOk = true;</span>
-                    }
-<span class="nc bnc" id="L202" title="All 6 branches missed.">                    if (playerNames.size() == 3 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 7) {</span>
+<span class="nc bnc" id="L200" title="All 4 branches missed.">                if (fromConsole.length() == 16 &amp;&amp; fromConsole.startsWith(&quot;ManufactureDisk&quot;)) {</span>
+<span class="nc" id="L201">                    int num = Integer.parseInt(fromConsole.substring(fromConsole.length() - 1));</span>
+<span class="nc bnc" id="L202" title="All 6 branches missed.">                    if (playerNames.size() == 2 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 5) {</span>
 <span class="nc" id="L203">                        isOk = true;</span>
                     }
-<span class="nc bnc" id="L205" title="All 6 branches missed.">                    if (playerNames.size() == 4 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 9) {</span>
+<span class="nc bnc" id="L205" title="All 6 branches missed.">                    if (playerNames.size() == 3 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 7) {</span>
 <span class="nc" id="L206">                        isOk = true;</span>
                     }
-<span class="nc" id="L208">                } else {</span>
-<span class="nc" id="L209">                    throw new Exception();</span>
+<span class="nc bnc" id="L208" title="All 6 branches missed.">                    if (playerNames.size() == 4 &amp;&amp; num &gt;= 1 &amp;&amp; num &lt;= 9) {</span>
+<span class="nc" id="L209">                        isOk = true;</span>
+                    }
+<span class="nc" id="L211">                } else {</span>
+<span class="nc" id="L212">                    throw new Exception();</span>
                 }
-<span class="nc" id="L211">            } catch (Exception e) {</span>
-<span class="nc" id="L212">                isOk = false;</span>
-<span class="nc" id="L213">            }</span>
-<span class="nc bnc" id="L214" title="All 2 branches missed.">        } while (!isOk);</span>
-<span class="nc" id="L215">        return fromConsole;</span>
+<span class="nc" id="L214">            } catch (Exception e) {</span>
+<span class="nc" id="L215">                isOk = false;</span>
+<span class="nc" id="L216">            }</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        } while (!isOk);</span>
+<span class="nc" id="L218">        return fromConsole;</span>
     }
 
     @Override
     public Color getColor() {
         String fromConsole;
-<span class="fc" id="L221">        Color chosenColor = null;</span>
-<span class="fc" id="L222">        boolean isOk = false;</span>
+<span class="fc" id="L224">        Color chosenColor = null;</span>
+<span class="fc" id="L225">        boolean isOk = false;</span>
         do {
-<span class="fc" id="L224">            System.out.println(&quot;Possible colors yet: WHITE, RED, GREEN, BLUE, YELLOW&quot;);</span>
-<span class="fc" id="L225">            System.out.println(&quot;Enter a color:&quot;);</span>
+<span class="fc" id="L227">            System.out.println(&quot;Possible colors yet: WHITE, RED, GREEN, BLUE, YELLOW&quot;);</span>
+<span class="fc" id="L228">            System.out.println(&quot;Enter a color:&quot;);</span>
             try {
-<span class="fc" id="L227">                fromConsole = sc.next();</span>
-<span class="fc bfc" id="L228" title="All 2 branches covered.">                if (!Color.FIRSTPLAYER.name().equals(fromConsole)) {</span>
-<span class="fc" id="L229">                    chosenColor = Color.valueOf(fromConsole);</span>
-<span class="fc" id="L230">                    isOk = true;</span>
+<span class="fc" id="L230">                fromConsole = sc.next();</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">                if (!Color.FIRSTPLAYER.name().equals(fromConsole)) {</span>
+<span class="fc" id="L232">                    chosenColor = Color.valueOf(fromConsole);</span>
+<span class="fc" id="L233">                    isOk = true;</span>
                 }
-<span class="fc" id="L232">            } catch (Exception e) {</span>
-<span class="fc" id="L233">                System.out.println(&quot;Please a valid color.&quot;);</span>
-<span class="fc" id="L234">                isOk = false;</span>
-<span class="pc bpc" id="L235" title="1 of 2 branches missed.">                if(testMode) {</span>
-<span class="fc" id="L236">                    throw new IllegalArgumentException();</span>
+<span class="fc" id="L235">            } catch (Exception e) {</span>
+<span class="fc" id="L236">                System.out.println(&quot;Please a valid color.&quot;);</span>
+<span class="fc" id="L237">                isOk = false;</span>
+<span class="pc bpc" id="L238" title="1 of 2 branches missed.">                if(testMode) {</span>
+<span class="fc" id="L239">                    throw new IllegalArgumentException();</span>
                 }
-<span class="fc" id="L238">            }</span>
-<span class="fc bfc" id="L239" title="All 2 branches covered.">        } while (!isOk);</span>
-<span class="fc" id="L240">        return chosenColor;</span>
+<span class="fc" id="L241">            }</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">        } while (!isOk);</span>
+<span class="fc" id="L243">        return chosenColor;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
