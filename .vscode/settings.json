@@ -1,0 +1,7 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "javaPMD.showErrors": true,
+  "javaPMD.rulesets": ["./ruleset.xml"],
+  "javaPMD.runOnFileSave": true,
+  "javaPMD.runOnFileOpen": true
+}

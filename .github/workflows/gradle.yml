@@ -1,0 +1,95 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - "featuresLorem"
+      - "abelFeatures"
+      - "FeaturesJB"
+  pull_request:
+    branches:
+      - main
+      - "featuresLorem"
+      - "abelFeatures"
+      - "FeaturesJB"
+
+jobs:
+  # Builds the current source code and run all tests.
+  # Fails if the code cannot be compiled or any of the tests fails.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint Code Base
+        if: github.ref == 'refs/heads/main'
+        uses: github/super-linter/slim@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_GOOGLE_JAVA_FORMAT: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "temurin"
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+        with:
+          arguments: build
+
+      - name: Check PMD
+        uses: pmd/pmd-github-action@v1
+        id: pmd
+        with:
+          version: "6.44.0"
+          sourcePath: "app/src"
+          rulesets: "ruleset.xml"
+      # User-friendly display of the test results.
+      - name: Junit test reporter
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: "app/build/test-results/test/TEST-*.xml"
+      - name: Run Test Coverage
+        run: ./gradlew jacocoTestReport
+
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: app/build/reports/jacoco/test/jacocoTestReport.csv
+          on-missing-report: fail
+          fail-on-coverage-decrease: false
+          fail-on-branches-decrease: false
+      - name: Collect documentations (Javadoc, PMD, coverage)
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          clean: true
+          folder: app/build/doc
+          target-folder: /
+
+      - name: Generate PMD Badge (Custom)
+        working-directory: ./scripts
+        run: sudo python get_badges.py
+
+      - name: Log coverage percentage
+        run: |
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+
+      - name: Commit the badges
+        if: github.ref != 'refs/heads/main'
+        run: |
+          if [[ `git status --porcelain -uno` ]]; then
+          git config --global user.name 'github_actions'
+          git config --global user.email 'github_actions@users.noreply.github.com'
+          git add .github/badges/*.svg -f
+          git commit -m "Commit badges"
+          git push origin HEAD:${GITHUB_REF_NAME}
+          fi

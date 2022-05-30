@@ -1,0 +1,11 @@
+app/bin/*
+app/build/*
+.gradle/*
+.pre-commit-config.yaml
+gradlew.bat
+README.md
+.vscode/*
+.git/*
+diagrams/*
+.github/*
+
